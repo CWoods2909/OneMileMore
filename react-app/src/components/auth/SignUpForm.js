@@ -9,7 +9,6 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -19,6 +18,9 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    }else{
+      setErrors(['Password fields must match!']);
+      return;
     }
   };
 
@@ -38,9 +40,7 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/' />;
-  }
+
 
   return (
     <form onSubmit={onSignUp}>
@@ -83,7 +83,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+          // required={true}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
