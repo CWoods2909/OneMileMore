@@ -8,7 +8,7 @@ const DemoUser = () => {
         await dispatch(login('demo@aa.io', 'password'));
     };
 
-    return <button className='demouser-btn' onClick={onClick}>Demo User</button>;
+    return <button className='demoUser-button' onClick={onClick}>Demo User</button>;
 };
 
 export default DemoUser;
