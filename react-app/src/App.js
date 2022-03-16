@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 // import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Splash from './components/SplashPage'
+import EventList from './components/events'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,8 +34,8 @@ function App() {
         <Route path='/' exact={true} >
           <Splash />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        <ProtectedRoute path='/events' exact={true} >
+          <EventList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
