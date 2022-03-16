@@ -5,7 +5,7 @@ from app.forms.event_form import EventForm
 
 event_routes = Blueprint('events', __name__)
 
-@event_routes('/', methods=['GET', 'POST'])
+@event_routes.route('/', methods=['GET', 'POST'])
 @login_required
 def all_events_api():
     form = EventForm()
@@ -27,5 +27,6 @@ def all_events_api():
         return {'errors': form.errors}
     
     events = Event.query.all()
+    print(events)
     return {'events': [event.to_dict() for event in events]}
         

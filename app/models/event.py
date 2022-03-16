@@ -11,7 +11,7 @@ class Event(db.Model):
     location = db.Column(db.String(100), nullable=False)
     length = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date, nullable=False)
-    time = db.Column(db.Time, nullable=False)
+    time = db.Column(db.String(10), nullable=False)
     description = db.Column(db.Text, nullable=False)
     createdAt = db.Column(db.Date, nullable=False)
     updatedAt = db.Column(db.Date, nullable=False)
@@ -24,6 +24,7 @@ class Event(db.Model):
             "eventName": self.eventName,
             "location": self.location,
             "length": self.length,
-            "startTime": self.startTime,
+            "date": self.date,
+            "time": self.time,
             "description": self.description
         }
