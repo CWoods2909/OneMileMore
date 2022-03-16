@@ -1,5 +1,4 @@
-from datetime import date, datetime
-from multiprocessing import Event
+from datetime import datetime
 from app.models import db, Event
 
 def seed_events():
@@ -34,9 +33,12 @@ def seed_events():
         updatedAt = datetime.now()
     )
     
+    db.session.add(event1)
+    db.session.add(event2)
+    db.session.add(event3)
+    db.session.commit()
     
     
-    
-def undo_users():
+def undo_events():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
