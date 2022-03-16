@@ -12,7 +12,7 @@ function Splash() {
             {sessionUser ? (<Redirect to='/users' />) :
                 (<div className="splash-main">
                     <div className="splash-text">
-                        <h1 className="splash-title">Welcome to One Mile More</h1>
+                        <h1 className="splash-title">One Mile More</h1>
                     </div>
                     <div className="splash-buttons">
                         <LoginModal />

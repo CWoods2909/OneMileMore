@@ -3,19 +3,20 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
+    background-image: url("../bike.jpg");
 }
 
 .splash-buttons {
     display: flex;
-    width: 100%;
+    width: 80vw;
     justify-content: space-around;
 }
 
 .splash-buttons > button {
-    background-color: rgb(33, 149, 95);
+    background-color: rgb(45, 115, 133);
     color: white;
-    border-radius: 20px;
-    width: 10vw;
+    border-radius: 10px;
+    width: 8vw;
     padding: 1%;
     border-bottom: 2px solid rgb(65, 153, 182);
 }
@@ -24,7 +25,9 @@
     cursor: pointer;
 }
 
-
 .splash-text{
-    color: aliceblue;
+    color: rgb(45, 115, 133);
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
 }
