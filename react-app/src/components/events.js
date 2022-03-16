@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function EventList() {
     const event = useSelector((state) => state.events)
-    console.log(event);
+    // console.log(event);
     const eventComp = Object.values(event)?.map((ele) =>{
         return (
             <div className='event-container' key={ele.id}>

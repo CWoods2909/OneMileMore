@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Splash from './components/SplashPage'
 import EventList from './components/events'
 import { allEvents } from './store/event';
+import Single_Event from './components/SingleEvent'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,8 +20,8 @@ function App() {
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
       await dispatch(allEvents())
+      await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -39,8 +40,8 @@ function App() {
         <ProtectedRoute path='/events' exact={true} >
           <EventList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/events/:id' exact={true} >
+          <Single_Event />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
