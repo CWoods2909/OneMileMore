@@ -9,7 +9,6 @@ event_routes = Blueprint('events', __name__)
 @login_required
 def all_events_api():
     form = EventForm()
-    
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         event = Event(
@@ -27,6 +26,5 @@ def all_events_api():
         return {'errors': form.errors}
     
     events = Event.query.all()
-    print(events)
     return {'events': [event.to_dict() for event in events]}
         

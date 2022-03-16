@@ -9,7 +9,7 @@ function Splash() {
     const sessionUser = useSelector((state) => state.session.user);
     return (
         <div style={{backgroundColor: "black"}} className='splash-container'>
-            {sessionUser ? (<Redirect to='/users' />) :
+            {sessionUser ? (<Redirect to='/events' />) :
                 (<div className="splash-main">
                     <div className="splash-text">
                         <h1 className="splash-title">One Mile More</h1>

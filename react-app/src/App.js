@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Splash from './components/SplashPage'
 import EventList from './components/events'
+import { allEvents } from './store/event';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(allEvents())
       setLoaded(true);
     })();
   }, [dispatch]);
