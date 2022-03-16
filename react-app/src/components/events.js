@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 function EventList() {
-    const events = useSelector((state) => state.events)
-
-    const eventComp = Object.values(events)?.map((ele) =>{
+    const event = useSelector((state) => state.events)
+    console.log(event);
+    const eventComp = Object.values(event)?.map((ele) =>{
         return (
             <div className='event-container' key={ele.id}>
                 <NavLink to={`/events/${ele.id}`}>{ele.eventName}</NavLink>
@@ -13,7 +13,7 @@ function EventList() {
         )
     })
     return(
-        <div event-list>
+        <div className='event-list'>
             <div>{eventComp}</div>
         </div>
     )
