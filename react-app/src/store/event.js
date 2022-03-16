@@ -35,6 +35,23 @@ export const allEvents = () => async dispatch => {
 }
 
 
+//new event
+export const newEvent = (eventName, location, length, date, time, description) => async dispatch => {
+    const response = await fetch(`/api/events/`,{
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({eventName, location, length, date, time, description})
+    })
+    if(response.ok){
+        const newEvent = await response.json()
+        if(newEvent?.errors) return newEvent
+        dispatch(edit(newEvent))
+        return newEvent
+    }
+    
+}
+
+
 //events reducer
 const initialState = {}
 
@@ -48,6 +65,10 @@ const eventReducer = (state = initialState, action) => {
                 newState[event.id] = event
             });  
             return newState
+
+        case ADD_EVENT:
+            newState[action.evt.events.id] = action.evt.event 
+            return newState;
 
             default:
                 return state

@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Event, db
@@ -27,4 +28,11 @@ def all_events_api():
     
     events = Event.query.all()
     return {'events': [event.to_dict() for event in events]}
+
+
+@event_routes.route('/<int:id>', methods=['GET'])
+@login_required
+def single_event(id):
+    event = Event.query.get(id)
+    return event.to_dict()
         
