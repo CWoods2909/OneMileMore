@@ -25,9 +25,7 @@ const destroy = (evt) => ({
 
 // get all events
 export const allEvents = () => async dispatch => {
-    const response = await fetch(`/api/events/`,{
-        method: 'GET'
-    })
+    const response = await fetch(`/api/events/all`)
 
     if (response.ok) {
         const events = await response.json();
@@ -39,7 +37,7 @@ export const allEvents = () => async dispatch => {
 
 //new event
 export const newEvent = (eventName, location, length, date, time, description) => async dispatch => {
-    const response = await fetch(`/api/events/`,{
+    const response = await fetch(`/api/events/create`,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({eventName, location, length, date, time, description})
