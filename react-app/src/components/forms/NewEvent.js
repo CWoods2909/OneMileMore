@@ -19,7 +19,7 @@ const NewEventForm = ({ onClose }) => {
         e.preventDefault();
         let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
         if (new_Event?.errors) return setErrors
-        if (new_Event) history.push(`/events/${new_Event.id}`)
+        if (new_Event) history.push(`/events`)
     }
 
     return (
@@ -39,6 +39,14 @@ const NewEventForm = ({ onClose }) => {
             <div>
                 <input
                     type='text'
+                    placeholder='Location of ride?'
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                />
+            </div>
+            <div>
+                <input
+                    type='text'
                     placeholder='What is the length of your ride?'
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
@@ -46,8 +54,8 @@ const NewEventForm = ({ onClose }) => {
             </div>
             <div>
                 <input
-                    type='text'
-                    placeholder='What is the date of your ride?'
+                    type='date'
+                    placeholder='ex.. 1989-05-11'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                 />
@@ -62,7 +70,7 @@ const NewEventForm = ({ onClose }) => {
             </div>
             <div>
                 <textarea
-                    placeholder='Desciption'
+                    placeholder='Description'
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />

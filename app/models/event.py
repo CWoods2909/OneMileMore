@@ -13,8 +13,7 @@ class Event(db.Model):
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.String(10), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    createdAt = db.Column(db.Date, nullable=False)
-    updatedAt = db.Column(db.Date, nullable=False)
+    
     
     db.relationship('Comment', cascade='all, delete-orphan')
     

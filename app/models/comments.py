@@ -7,8 +7,7 @@ class Comment(db.Model):
     body = db.Column(db.Text, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     eventId = db.Column(db.Integer, db.ForeignKey('events.id', ondelete='CASCADE'), nullable=False)
-    createdAt = db.Column(db.Date, nullable=False)
-    updatedAt = db.Column(db.Date, nullable=False)
+    
     
     def to_dict(self):
         return{

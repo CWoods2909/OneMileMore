@@ -45,7 +45,7 @@ export const newEvent = (eventName, location, length, date, time, description) =
     if(response.ok){
         const newEvent = await response.json()
         if(newEvent?.errors) return newEvent
-        dispatch(edit(newEvent))
+        dispatch(add(newEvent))
         return newEvent
     }
     
@@ -68,6 +68,7 @@ const eventReducer = (state = initialState, action) => {
 
         case ADD_EVENT:
             newState[action.evt.events.id] = action.evt.event 
+            console.log(newState);
             return newState;
 
             default:

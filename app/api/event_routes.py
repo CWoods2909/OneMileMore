@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Event, db
@@ -13,12 +12,12 @@ def all_events_api():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         event = Event(
-            eventName = form.data('eventName'),
-            location = form.data('location'),
-            length = form.data('length'),
-            date = form.data('date'),
-            time = form.data('time'),
-            description = form.data('description')
+            eventName = form.data['eventName'],
+            location = form.data['location'],
+            length = form.data['length'],
+            date = form.data['date'],
+            time = form.data['time'],
+            description = form.data['description']
         )
         db.session.add(event)
         db.session.commit()
