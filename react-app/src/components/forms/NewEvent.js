@@ -46,7 +46,7 @@ const NewEventForm = ({ onClose }) => {
             </div>
             <div>
                 <input
-                    type='text'
+                    type='number'
                     placeholder='What is the length of your ride?'
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
