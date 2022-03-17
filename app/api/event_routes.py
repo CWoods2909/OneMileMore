@@ -5,9 +5,17 @@ from app.forms.event_form import EventForm
 
 event_routes = Blueprint('events', __name__)
 
-@event_routes.route('/', methods=['GET', 'POST'])
+@event_routes.route('/', methods=['GET'])
 @login_required
 def all_events_api():
+    events = Event.query.all()
+    return {'events': [event.to_dict() for event in events]}
+
+
+
+@event_routes.route('/', methods=['POST'])
+@login_required
+def post_event():
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -25,9 +33,6 @@ def all_events_api():
         return event.to_dict()
     if form.errors:
         return {'errors': form.errors}
-    
-    events = Event.query.all()
-    return {'events': [event.to_dict() for event in events]}
 
 
 @event_routes.route('/<int:id>', methods=['GET'])

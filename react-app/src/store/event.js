@@ -25,7 +25,9 @@ const destroy = (evt) => ({
 
 // get all events
 export const allEvents = () => async dispatch => {
-    const response = await fetch(`/api/events/`)
+    const response = await fetch(`/api/events/`,{
+        method: 'GET'
+    })
 
     if (response.ok) {
         const events = await response.json();
