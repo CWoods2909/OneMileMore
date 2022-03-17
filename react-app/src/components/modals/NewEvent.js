@@ -7,7 +7,7 @@ const NewEventModal = () => {
 
     return(
 <>
-            <div className='new-event-button' onClick={() => setRenderModal(true)}>Create Event</div>
+            <button className='new-event-button' onClick={() => setRenderModal(true)}>Create Event</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <NewEventForm onClose={() => setRenderModal(false)}/>
