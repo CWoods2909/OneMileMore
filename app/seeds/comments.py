@@ -6,22 +6,17 @@ def seed_comments():
         body = 'This seems like a fun ride, cant wait.  Ill be there for sure.',
         userId = 2,
         eventId = 2,
-        createdAt = datetime.now(),
-        updatedAt = datetime.now()
+        
     )
     comment2 = Comment(
         body = 'Looking forward to this ride, can really use the miles',
         userId = 3,
         eventId = 1,
-        createdAt = datetime.now(),
-        updatedAt = datetime.now()
     )
     comment3 = Comment(
         body = 'Great idea, my legs are killing me from the week.',
         userId = 1,
         eventId = 2,
-        createdAt = datetime.now(),
-        updatedAt = datetime.now()
     )
     
     db.session.add(comment1)

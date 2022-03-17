@@ -10,6 +10,6 @@ class EventForm(FlaskForm):
     date = DateField ('Date', validators=[DataRequired()])
     time = StringField ('Time', validators=[DataRequired()])
     description = TextAreaField ('Desription', validators=[DataRequired()])
-    submit = SubmitField('Submit', validators=[DataRequired()])
+    submit = SubmitField('Submit')
     
     

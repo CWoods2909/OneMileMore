@@ -45,7 +45,7 @@ export const newEvent = (eventName, location, length, date, time, description) =
     if(response.ok){
         const newEvent = await response.json()
         if(newEvent?.errors) return newEvent
-        dispatch(edit(newEvent))
+        dispatch(add(newEvent))
         return newEvent
     }
     
@@ -56,18 +56,21 @@ export const newEvent = (eventName, location, length, date, time, description) =
 const initialState = {}
 
 const eventReducer = (state = initialState, action) => {
-    let newState = {...state}
+    let newState;
 
     switch(action.type){
         case LOAD_EVENTS:
             console.log(action);
+            newState = {...state}
             action.evt.events.forEach(event => {
                 newState[event.id] = event
             });  
             return newState
 
         case ADD_EVENT:
-            newState[action.evt.events.id] = action.evt.event 
+            newState = {...state}
+            newState[action.evt.id] = action.evt
+            console.log(newState);
             return newState;
 
             default:
