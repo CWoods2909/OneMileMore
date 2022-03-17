@@ -14,6 +14,7 @@ def all_events_api():
         event = Event(
             eventName = form.data['eventName'],
             location = form.data['location'],
+            userId = current_user.id,
             length = form.data['length'],
             date = form.data['date'],
             time = form.data['time'],
@@ -35,3 +36,11 @@ def single_event(id):
     event = Event.query.get(id)
     return event.to_dict()
         
+        
+@event_routes.route('/<int:id>', methods=['PUT', 'DELETE'])
+@login_required
+def event_api(id):
+    event = Event.query.get(id)
+    db.session.delete(event)
+    db.session.commit()
+    return {'message': 'Event deleted'}

@@ -51,6 +51,19 @@ export const newEvent = (eventName, location, length, date, time, description) =
     
 }
 
+//delete event
+export const deleteEvent = (evt) => async dispatch => {
+    const response = await fetch(`/api/events/${evt.id}`,{
+        method: 'DELETE'
+    })
+    if(response.ok){
+        const delete_Event = await response.json();
+        dispatch(destroy(evt))
+        return delete_Event
+    }
+}
+
+
 
 //events reducer
 const initialState = {}
@@ -60,7 +73,6 @@ const eventReducer = (state = initialState, action) => {
 
     switch(action.type){
         case LOAD_EVENTS:
-            console.log(action);
             newState = {...state}
             action.evt.events.forEach(event => {
                 newState[event.id] = event
@@ -70,8 +82,12 @@ const eventReducer = (state = initialState, action) => {
         case ADD_EVENT:
             newState = {...state}
             newState[action.evt.id] = action.evt
-            console.log(newState);
             return newState;
+
+        case DELETE_EVENT:
+            newState = {...state}
+            delete newState[action.evt.id]
+            return newState
 
             default:
                 return state

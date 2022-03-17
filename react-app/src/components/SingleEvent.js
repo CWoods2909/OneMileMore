@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { allEvents } from '../store/event';
+import DeleteEventModal from './modals/DeleteEventModal';
 
 const Single_Event = () =>{
     const {id} = useParams()
     const dispatch = useDispatch()
     const event = useSelector(state => state.events[id])
     console.log(event);
+    const user = useSelector((state) => state.session.user)
 
     useEffect(() =>{
         if(!id) return
@@ -27,6 +29,13 @@ const Single_Event = () =>{
                 <li>{event.time}</li>
                 <li>{event.description}</li>
             </ul>
+            <div>
+                    
+                        <div>
+                            <DeleteEventModal/>
+                        </div>
+                    
+                </div>
         </div>
     ) : null
 }

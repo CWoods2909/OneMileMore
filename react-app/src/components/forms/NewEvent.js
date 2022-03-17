@@ -29,48 +29,48 @@ const NewEventForm = ({ onClose }) => {
                 <li key={error[0]}>{error[1]}: {error[0]}</li>
             ))}</ul>
             <div>
+                <label>Name event</label>
                 <input
                     type='text'
-                    placeholder='Whats the name of your event?'
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
                 />
             </div>
             <div>
+                <label>Location of ride</label>
                 <input
                     type='text'
-                    placeholder='Location of ride?'
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 />
             </div>
             <div>
+                <label>Length of ride</label>
                 <input
                     type='number'
-                    placeholder='What is the length of your ride?'
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                 />
             </div>
             <div>
+                <label>Date</label>
                 <input
                     type='date'
-                    placeholder='ex.. 1989-05-11'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                 />
             </div>
             <div>
+                <label>Time</label>
                 <input
-                    type='text'
-                    placeholder='What is the time of your ride?'
+                    type='time'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 />
             </div>
             <div>
+                <label>Tell us about your ride</label>
                 <textarea
-                    placeholder='Description'
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
