@@ -20,6 +20,7 @@ const NewEventForm = ({ onClose }) => {
         let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
         if (new_Event?.errors) return setErrors
         if (new_Event) history.push(`/events/${new_Event.id}`)
+        onClose()
     }
 
     return (
