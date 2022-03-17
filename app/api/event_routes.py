@@ -5,7 +5,7 @@ from app.forms.event_form import EventForm
 
 event_routes = Blueprint('events', __name__)
 
-@event_routes.route('/', methods=['GET'])
+@event_routes.route('/all')
 @login_required
 def all_events_api():
     events = Event.query.all()
@@ -13,7 +13,7 @@ def all_events_api():
 
 
 
-@event_routes.route('/', methods=['POST'])
+@event_routes.route('/create', methods=['POST'])
 @login_required
 def post_event():
     form = EventForm()
