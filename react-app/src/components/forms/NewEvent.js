@@ -30,7 +30,7 @@ const NewEventForm = ({ onClose }) => {
         <form onSubmit={handleSubmit} className='new-event-form'>
             <h2 className='new-event-header'>Create Event</h2>
             <ul className='errors'>{Object.entries(errors).map((error) => (
-                <li key={error[0]}>{error[1]}: {error[0]}</li>
+                <li key={error[0]}>{error}</li>
             ))}</ul>
             <div>
                 <label>Name of event</label>

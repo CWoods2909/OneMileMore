@@ -1,19 +1,16 @@
 import { deleteEvent } from "../../store/event";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const DelEventForm = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { id } = useParams();
     const event = useSelector((state) => state.events[id])
 
     const handleDelete = async (e) => {
         e.preventDefault()
 
-        const newDelete = await dispatch(deleteEvent(event))
-            
-                // history.push(`/events`)
+        await dispatch(deleteEvent(event))
             
             
     }
