@@ -1,4 +1,5 @@
 from datetime import date
+from datetime import time
 from enum import unique
 from .db import db
 
@@ -12,7 +13,7 @@ class Event(db.Model):
     location = db.Column(db.String(100), nullable=False)
     length = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date, nullable=False)
-    time = db.Column(db.String(10), nullable=False)
+    time = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=False)
     
     
@@ -21,6 +22,7 @@ class Event(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "userId": self.userId,
             "eventName": self.eventName,
             "location": self.location,
             "length": self.length,
