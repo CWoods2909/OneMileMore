@@ -44,7 +44,7 @@ const Single_Event = () => {
         } else if (hours === 0) {
             newTime = "12";
         }
-        newTime += (minutes < 10) ? ":0" + minutes : ":" + minutes;
+        newTime += (minutes < 10) ? ":" + minutes : ":" + minutes;
         newTime += (hours >= 12) ? " P.M" : " A.M";
     
     
