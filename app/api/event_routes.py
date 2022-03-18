@@ -48,7 +48,7 @@ def event_api(id):
     event = Event.query.get(id)
     db.session.delete(event)
     db.session.commit()
-    return {'message': 'Event deleted'}
+    return event.to_dict()
 
 
 @event_routes.route('/<int:id>', methods=['PUT'])
