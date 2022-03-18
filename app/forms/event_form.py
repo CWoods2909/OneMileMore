@@ -4,15 +4,8 @@ from wtforms import StringField, TextAreaField, SubmitField, IntegerField, DateF
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Event
 
-def event_exists(form, field):
-    eventName = field.data
-    event = Event.query.filter(Event.eventName == eventName).first()
-    if event:
-        raise ValidationError('That event name already exists.')
-
-
 class EventForm(FlaskForm):
-    eventName = StringField('Event Name', validators=[DataRequired(), event_exists])
+    eventName = StringField('Event Name', validators=[DataRequired()])
     location = StringField ('Location', validators=[DataRequired()])
     length = IntegerField ('Length', validators=[DataRequired()])
     date = DateField ('Date', validators=[DataRequired()])
