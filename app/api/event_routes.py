@@ -58,12 +58,12 @@ def edit_event(id):
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-            event.eventName = form.data['eventName'],
-            event.location = form.data['location'],
-            event.userId = current_user.id,
-            event.length = form.data['length'],
-            event.date = form.data['date'],
-            event.time = form.data['time'],
+            event.eventName = form.data['eventName']
+            event.location = form.data['location']
+            event.userId = current_user.id
+            event.length = form.data['length']
+            event.date = form.data['date']
+            event.time = form.data['time']
             event.description = form.data['description']
             
             return event.to_dict()

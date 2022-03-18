@@ -72,6 +72,7 @@ export const edtEvent = (id, eventName, location, length, date, time, descriptio
     })
     if(response.ok){
         const event = await response.json()
+        console.log(event);
         if(event?.errors) return event
         dispatch(edit(event))
         return event
