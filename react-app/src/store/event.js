@@ -58,7 +58,8 @@ export const deleteEvent = (evt) => async dispatch => {
     })
     if(response.ok){
         const delete_Event = await response.json();
-        dispatch(destroy(evt))
+        console.log(delete_Event);
+        dispatch(destroy(delete_Event))
         return delete_Event
     }
 }
@@ -72,7 +73,6 @@ export const edtEvent = (id, eventName, location, length, date, time, descriptio
     })
     if(response.ok){
         const event = await response.json()
-        console.log(event);
         if(event?.errors) return event
         dispatch(edit(event))
         return event
@@ -102,6 +102,7 @@ const eventReducer = (state = initialState, action) => {
 
         case DELETE_EVENT:
             newState = {...state}
+            console.log(action.evt.id);
             delete newState[action.evt.id]
             return newState
 

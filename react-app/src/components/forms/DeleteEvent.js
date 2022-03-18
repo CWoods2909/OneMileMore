@@ -11,10 +11,13 @@ const DelEventForm = () => {
     const handleDelete = async (e) => {
         e.preventDefault()
 
-        dispatch(deleteEvent(event))
-            .then(() => {
+        const newDelete = await dispatch(deleteEvent(event))
+        console.log(newDelete);
+            if(newDelete) {
+                console.log('hello');
                 history.push(`/events`)
-            })
+            }
+            
     }
     return(
         <div className="delete-container">
