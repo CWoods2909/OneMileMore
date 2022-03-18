@@ -23,17 +23,15 @@ const Single_Event = () => {
         openForm(true);
     }
     
-    // console.log(event.userId, user.id, event, '########################################');
-
     return (
         <div className='Outer-event-container'>
             <ul className='event-details'>
-                <li>{event.eventName}</li>
-                <li>{event.location}</li>
-                <li>{event.length}</li>
-                <li>{event.date}</li>
-                <li>{event.time}</li>
-                <li>{event.description}</li>
+                <li>{event?.eventName}</li>
+                <li>{event?.location}</li>
+                <li>{event?.length}</li>
+                <li>{event?.date}</li>
+                <li>{event?.time}</li>
+                <li>{event?.description}</li>
             </ul>
             <div>
                 {event?.userId === user?.id &&
