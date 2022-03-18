@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { newEvent } from '../../store/event';
 import { useHistory } from 'react-router-dom';
 
+
 const NewEventForm = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -22,6 +23,8 @@ const NewEventForm = ({ onClose }) => {
         if (new_Event) history.push(`/events/${new_Event.id}`)
         onClose()
     }
+
+    
 
     return (
         <form onSubmit={handleSubmit} className='new-event-form'>

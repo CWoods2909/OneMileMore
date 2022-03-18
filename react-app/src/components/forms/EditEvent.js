@@ -24,7 +24,6 @@ const EditEventForm = ({openForm}) => {
         let editEvent = await dispatch(edtEvent(id, eventName, location, length, date, time, description,))
         if (editEvent?.errors) return setErrors(editEvent.errors)
         if (editEvent) {
-            // history.push(`/events/${editEvent.id}`);
             openForm(false)
         }
     }
@@ -33,7 +32,7 @@ const EditEventForm = ({openForm}) => {
         e.preventDefault()
         openForm(false)
     }
-
+    
     return (
         <form onSubmit={handleSubmit} className='new-event-form'>
             <h2 className='new-event-header'>Edit Event</h2>

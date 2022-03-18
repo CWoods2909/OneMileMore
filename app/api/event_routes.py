@@ -66,6 +66,7 @@ def edit_event(id):
             event.time = form.data['time']
             event.description = form.data['description']
             
+            db.session.commit()
             return event.to_dict()
 
     if form.errors:

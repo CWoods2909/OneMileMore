@@ -12,11 +12,9 @@ const DelEventForm = () => {
         e.preventDefault()
 
         const newDelete = await dispatch(deleteEvent(event))
-        console.log(newDelete);
-            if(newDelete) {
-                console.log('hello');
-                history.push(`/events`)
-            }
+            
+                // history.push(`/events`)
+            
             
     }
     return(
