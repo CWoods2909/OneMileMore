@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { allEvents } from '../store/event';
 import DeleteEventModal from './modals/DeleteEventModal';
+import EditEventForm from './forms/EditEvent';
 
 const Single_Event = () =>{
     const {id} = useParams()
     const dispatch = useDispatch()
     const event = useSelector(state => state.events[id])
-    console.log(event);
     const user = useSelector((state) => state.session.user)
+    const [closeForm, openForm] = useState(false);
 
     useEffect(() =>{
         if(!id) return
@@ -17,6 +18,10 @@ const Single_Event = () =>{
             dispatch(allEvents(id))
         })()
     }, [dispatch, id])
+
+    const editForm = (e) => {
+        openForm(true);
+    }
 
 
     return event?(
@@ -30,13 +35,14 @@ const Single_Event = () =>{
                 <li>{event.description}</li>
             </ul>
             <div>
-                    
+                    {event.userId === user.id && (
                         <div>
                             <DeleteEventModal/>
+                            <button type='button' onClick={editForm}>Edit</button></div>)}
                         </div>
-                    
+                        {closeForm && (<EditEventForm openForm={openForm} />)}
                 </div>
-        </div>
+        
     ) : null
 }
 

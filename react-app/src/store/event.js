@@ -63,6 +63,21 @@ export const deleteEvent = (evt) => async dispatch => {
     }
 }
 
+//edit event
+export const edtEvent = (id, eventName, location, length, date, time, description) => async dispatch => {
+    const response = await fetch(`/api/events/${id}`,{
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id, eventName, location, length, date, time, description})
+    })
+    if(response.ok){
+        const event = await response.json()
+        if(event?.errors) return event
+        dispatch(edit(event))
+        return event
+    }
+}
+
 
 
 //events reducer
@@ -87,6 +102,11 @@ const eventReducer = (state = initialState, action) => {
         case DELETE_EVENT:
             newState = {...state}
             delete newState[action.evt.id]
+            return newState
+
+        case EDIT_EVENT:
+            newState = {...state}
+            newState[action.evt.id] = action.evt
             return newState
 
             default:

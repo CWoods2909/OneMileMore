@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { newEvent } from '../../store/event';
-import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { edtEvent } from '../../store/event'
+import { useParams } from 'react-router-dom';
 
-const NewEventForm = ({ onClose }) => {
+
+const EditEventForm = ({openForm}) => {
     const dispatch = useDispatch()
-    const history = useHistory()
+    const {id} = useParams()
+    const event = useSelector((state) => state.events[id])
+    
 
-    const [eventName, setEventName] = useState('')
-    const [location, setLocation] = useState('')
-    const [length, setLength] = useState('')
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
-    const [description, setDescription] = useState('')
+    const [eventName, setEventName] = useState(event?.eventName)
+    const [location, setLocation] = useState(event?.location)
+    const [length, setLength] = useState(event?.length)
+    const [date, setDate] = useState(event?.date)
+    const [time, setTime] = useState(event?.time)
+    const [description, setDescription] = useState(event?.description)
     const [errors, setErrors] = useState([])
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
-        if (new_Event?.errors) return setErrors
-        if (new_Event) history.push(`/events/${new_Event.id}`)
-        onClose()
+        e.preventDefault()
+
+        let editEvent = await dispatch(edtEvent(id, eventName, location, length, date, time, description,))
+        if (editEvent?.errors) return setErrors(editEvent.errors)
+        if (editEvent) {
+            // history.push(`/events/${editEvent.id}`);
+            openForm(false)
+        }
+    }
+
+    const cancelSubmit = (e) => {
+        e.preventDefault()
+        openForm(false)
     }
 
     return (
         <form onSubmit={handleSubmit} className='new-event-form'>
-            <h2 className='new-event-header'>Create Event</h2>
+            <h2 className='new-event-header'>Edit Event</h2>
             <ul className='errors'>{Object.entries(errors).map((error) => (
                 <li key={error[0]}>{error[1]}: {error[0]}</li>
             ))}</ul>
@@ -78,9 +89,10 @@ const NewEventForm = ({ onClose }) => {
             </div>
             <div className='submit-button'>
             <button type='submit' disabled={errors.length > 0}>Submit</button>
+            <button type='button' onClick={cancelSubmit}>Cancel</button>
             </div>
         </form>
     )
 }
 
-export default NewEventForm
+export default EditEventForm
