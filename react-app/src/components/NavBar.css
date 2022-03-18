@@ -1,0 +1,24 @@
+.navBar{
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(236, 218, 115);
+}
+
+.navBar > .log-out-button{
+    margin-right: 35px;
+}
+
+.home_create-event{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20vw;
+}
+
+html{
+    height: 100vh;
+    background-color: rgb(154, 223, 223);
+}

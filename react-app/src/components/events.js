@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
+import './Events.css'
 
 function EventList() {
     const event = useSelector((state) => state.events)
@@ -9,14 +9,14 @@ function EventList() {
     
     const eventComp = Object.values(event)?.map((ele) =>{
         return (
-            <div className='event-container' key={ele.id}>
+            <div className='events-indv' key={ele.id}>
                 <NavLink to={`/events/${ele.id}`}>{ele.eventName}</NavLink>
                 
             </div>
         )
     })
     return (
-        <div>
+        <div className='events-container'>
             <h1>Events</h1>
             <div>{eventComp}</div>
         </div>
