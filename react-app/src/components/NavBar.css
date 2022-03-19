@@ -4,7 +4,7 @@
     height: 5vh;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(255, 151, 103);
+    background-color: rgba(255, 151, 103, 0.856);
 }
 
 .navBar > .log-out-button{
@@ -20,5 +20,51 @@
 
 html{
     height: 100vh;
-    background-color: rgb(64, 185, 159);
+    background-color: rgb(245, 245, 245);
+}
+
+body{
+    width: 100vw;
+    height: 100vw;
+    margin: 0;
+}
+
+#root{
+    width: 100vw;
+    height: 100vw;
+}
+
+.new-event-button{
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    margin-right: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.new-event-button:hover{
+    background-color: rgb(87, 87, 194);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.log-out-button{
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    margin-right: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.log-out-button:hover{
+    background-color: rgb(221, 177, 34);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.home_create-event > div > a{
+    text-decoration: none;
+    font-size: large;
 }

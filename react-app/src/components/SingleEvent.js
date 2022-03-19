@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { allEvents } from '../store/event';
 import DeleteEventModal from './modals/DeleteEventModal';
 import EditEventForm from './forms/EditEvent';
-
+import './SingleEvent.css'
 
 const Single_Event = () => {
     const { id } = useParams()
@@ -26,47 +26,49 @@ const Single_Event = () => {
 
     const newDate = new Date(event?.date).toLocaleDateString('en-US')
 
-    
-        if(!event) {
-            return <Redirect to='/events'/>
-        }
 
-        const theTime = event?.time.split(':')
-        let hours = theTime[0]
-        let minutes = theTime[1]
-        
-        let newTime;
-        
-        if (hours > 0 && hours <= 12) {
-            newTime = "" + hours;
-        } else if (hours > 12) {
-            newTime = "" + (hours - 12);
-        } else if (hours === 0) {
-            newTime = "12";
-        }
-        newTime += (minutes < 10) ? ":" + minutes : ":" + minutes;
-        newTime += (hours >= 12) ? " P.M" : " A.M";
-    
-    
+    if (!event) {
+        return <Redirect to='/events' />
+    }
+
+    const theTime = event?.time.split(':')
+    let hours = theTime[0]
+    let minutes = theTime[1]
+
+    let newTime;
+
+    if (hours > 0 && hours <= 12) {
+        newTime = "" + hours;
+    } else if (hours > 12) {
+        newTime = "" + (hours - 12);
+    } else if (hours === 0) {
+        newTime = "12";
+    }
+    newTime += (minutes < 10) ? ":" + minutes : ":" + minutes;
+    newTime += (hours >= 12) ? " P.M" : " A.M";
+
+
     return (
-        <div className='Outer-event-container'>
-            <ul className='event-details'>
-                <li>{event?.eventName}</li>
-                <li>{event?.location}</li>
-                <li>{event?.length}</li>
-                <li>{newDate}</li>
-                <li>{newTime}</li>
-                <li>{event?.description}</li>
-            </ul>
-            <div>
+        <>
+            <div className='Outer-event-container'>
+                <ul className='event-details'>
+                    <li>Event Name: {event?.eventName}</li>
+                    <li>Location: {event?.location}</li>
+                    <li>Length: {event?.length} miles</li>
+                    <li>Date: {newDate}</li>
+                    <li>Time: {newTime}</li>
+                    <li>Description: {event?.description}</li>
+                </ul>
+            </div>
+            <div className='deleteEdit-buttons'>
                 {event?.userId === user?.id &&
-                    <div>
+                    <div className='button-spacing'>
                         <DeleteEventModal />
                         <button type='button' onClick={editForm}>Edit</button></div>}
                 {closeForm && (<EditEventForm openForm={openForm} />)}
             </div>
-        </div>
 
+        </>
     )
 }
 
