@@ -58,8 +58,8 @@ const EditEventForm = ({openForm}) => {
     }
     
     return (
-        <form onSubmit={handleSubmit} className='new-event-form'>
-            <h2 className='new-event-header'>Edit Event</h2>
+        <form onSubmit={handleSubmit} className='edit-event-form'>
+            <h2 className='edit-event-header'>Edit Event</h2>
             <ul className='errors'>{Object.entries(errors).map((error) => (
                 <li key={error}>{error}</li>
             ))}</ul>

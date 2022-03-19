@@ -10,14 +10,14 @@ function EventList() {
     const eventComp = Object.values(event)?.map((ele) =>{
         return (
             <div className='events-indv' key={ele.id}>
-                <NavLink to={`/events/${ele.id}`}>{ele.eventName}</NavLink>
-                
+                <NavLink className={'Navlink'} to={`/events/${ele.id}`}>{ele.eventName}</NavLink>
+                <div className='description'>{ele.description}</div>
             </div>
         )
     })
     return (
         <div className='events-container'>
-            <h1>Events</h1>
+            <h1>Upcoming Events</h1>
             <div>{eventComp}</div>
         </div>
     )
