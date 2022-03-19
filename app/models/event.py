@@ -6,7 +6,7 @@ class Event(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    eventName = db.Column(db.String(100), nullable=False, unique=True)
+    eventName = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(100), nullable=False)
     length = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date, nullable=False)

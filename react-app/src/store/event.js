@@ -102,7 +102,6 @@ const eventReducer = (state = initialState, action) => {
 
         case DELETE_EVENT:
             newState = {...state}
-            console.log(action.evt.id);
             delete newState[action.evt.id]
             return newState
 
