@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { allEvents } from '../store/event';
-import DeleteEventModal from './modals/DeleteEventModal';
-import EditEventForm from './forms/EditEvent';
+import { allEvents } from '../../store/event';
+import DeleteEventModal from '../modals/DeleteEventModal';
+import EditEventForm from '../forms/EditEvent';
 import './SingleEvent.css'
 
 const Single_Event = () => {

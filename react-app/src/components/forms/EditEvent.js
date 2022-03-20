@@ -4,20 +4,25 @@ import { edtEvent } from '../../store/event'
 import { useParams } from 'react-router-dom';
 
 
-const EditEventForm = ({openForm}) => {
+const EditEventForm = ({ openForm }) => {
     const dispatch = useDispatch()
-    const {id} = useParams()
+    const { id } = useParams()
     const event = useSelector((state) => state.events[id])
-    
+
+    const formatDate = (date) => {
+        const formattedDate = new Date(date).toISOString().slice(0, 10);
+        return formattedDate;
+    };
+
 
     const [eventName, setEventName] = useState(event?.eventName)
     const [location, setLocation] = useState(event?.location)
     const [length, setLength] = useState(event?.length)
-    const [date, setDate] = useState(event?.date)
+    const [date, setDate] = useState(formatDate(event?.date))
     const [time, setTime] = useState(event?.time)
     const [description, setDescription] = useState(event?.description)
     const [errors, setErrors] = useState([])
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -30,25 +35,25 @@ const EditEventForm = ({openForm}) => {
 
     let dateString = new Date()
     let dateToday = dateString.toLocaleDateString().split('/')
-    let datePicked 
+    let datePicked
     
     useEffect(() => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
-            if(eventName === event.eventName)validate.push('Sorry, that Event name is already in use.')
+            if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
             return true
         })
         
-        if(date.length){
+        if (date.length) {
             datePicked = date.split('-')
             let year = datePicked.shift()
             datePicked.push(year)
-            if(datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0])validate.push('Please pick a valid date.')
+            if (datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
 
-        if(length < 0)validate.push('Please provide a valid ride length.')
-        
+        if (length < 0) validate.push('Please provide a valid ride length.')
+
         setErrors(validate)
     }, [eventName, datePicked, date, length])
 
@@ -56,7 +61,7 @@ const EditEventForm = ({openForm}) => {
         e.preventDefault()
         openForm(false)
     }
-    
+
     return (
         <form onSubmit={handleSubmit} className='edit-event-form'>
             <h2 className='edit-event-header'>Edit Event</h2>
@@ -111,8 +116,8 @@ const EditEventForm = ({openForm}) => {
                 />
             </div>
             <div className='submit-button'>
-            <button type='submit' disabled={errors.length > 0}>Submit</button>
-            <button type='button' onClick={cancelSubmit}>Cancel</button>
+                <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button type='button' onClick={cancelSubmit}>Cancel</button>
             </div>
         </form>
     )

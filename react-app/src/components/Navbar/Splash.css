@@ -3,7 +3,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    background-image: url("../bike.jpg");
+    background-image: url("../../bike.jpg");
 }
 
 .splash-buttons {

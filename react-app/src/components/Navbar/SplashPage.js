@@ -1,8 +1,8 @@
-import LoginModal from './modals/LoginModal';
-import SignupModal from './modals/SignupModal'
+import LoginModal from '../modals/LoginModal';
+import SignupModal from '../modals/SignupModal'
 import { useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
-import DemoUser from './auth/DemoUser';
+import DemoUser from '../auth/DemoUser';
 import './Splash.css'
 
 function Splash() {

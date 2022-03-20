@@ -3,15 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { newEvent } from '../../store/event';
 import { useHistory } from 'react-router-dom';
 
-
 const NewEventForm = ({ onClose }) => {
+
+
+    const defaultDate = () => {
+        // yyyy-mm-dd
+        const date = new Date().toISOString().slice(0, 10);
+        return date;
+    };
+
+
+
     const dispatch = useDispatch()
     const history = useHistory()
     const event = useSelector((state) => state.events)
     const [eventName, setEventName] = useState('')
     const [location, setLocation] = useState('')
     const [length, setLength] = useState('')
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(`${defaultDate()}`)
     const [time, setTime] = useState('')
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([])
@@ -19,38 +28,38 @@ const NewEventForm = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
-        if (new_Event?.errors){
+        if (new_Event?.errors) {
             return setErrors(new_Event.errors)
-        } 
+        }
         if (new_Event) history.push(`/events/${new_Event.id}`)
         onClose()
     }
 
-    
+
     let dateString = new Date()
     let dateToday = dateString.toLocaleDateString().split('/')
-    let datePicked 
-    
+    let datePicked
+
     useEffect(() => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
-            if(eventName === event.eventName)validate.push('Sorry, that Event name is already in use.')
+            if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
             return true
         })
-        
-        if(date.length){
+
+        if (date.length) {
             datePicked = date.split('-')
             let year = datePicked.shift()
             datePicked.push(year)
-            if(datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0])validate.push('Please pick a valid date.')
+            if (datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
 
-        if(length < 0)validate.push('Please provide a valid ride length.')
-        
+        if (length < 0) validate.push('Please provide a valid ride length.')
+
         setErrors(validate)
     }, [eventName, datePicked, date, length])
-    
+
 
     return (
         <form onSubmit={handleSubmit} className='new-event-form'>
@@ -106,7 +115,7 @@ const NewEventForm = ({ onClose }) => {
                 />
             </div>
             <div className='submit-button'>
-            <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button type='submit' disabled={errors.length > 0}>Submit</button>
             </div>
         </form>
     )

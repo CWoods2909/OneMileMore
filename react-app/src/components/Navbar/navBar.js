@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import NewEventModal from './modals/NewEvent'
+import LogoutButton from '../auth/LogoutButton';
+import NewEventModal from '../modals/NewEvent'
 import './NavBar.css'
 
 const NavBar = () => {
