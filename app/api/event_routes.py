@@ -70,4 +70,4 @@ def edit_event(id):
             return event.to_dict()
 
     if form.errors:
-        return {"errors": form.errors}
+        return {"errors": form.errors}, 401

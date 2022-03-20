@@ -38,9 +38,26 @@ export const getAllComments = (id) => async dispatch =>{
     })
     if(response.ok){
         const {comments} = await response.json();
-        console.log(comments);
         dispatch(getComments(comments))
         return comments
+    }
+}
+
+//post comment
+export const newComment = (body, event) => async dispatch => {
+    const response = await fetch (`/api/comments/${event}`,{
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({body})
+        
+    })
+    if(response.ok){
+        console.log(response);
+        const new_comment = await response.json()
+        console.log(new_comment);
+        if(new_comment?.errors) return new_comment
+        dispatch(addComment(new_comment))
+        return new_comment
     }
 }
 
@@ -54,10 +71,14 @@ const commentReducer = (state = initialState, action) =>{
             newState = {...state}
             if(action.comments.length > 0){
                 newState[action.comments[0].eventId] = action.comments
-                console.log(action.comments);
             }
             return newState
-
+        
+        case ADD_COMMENT:
+            newState = {...state}
+            newState[action.postComment.eventId] = action.postComment
+            return newState
+            
             default:
                 return state;
     }
