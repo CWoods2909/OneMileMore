@@ -11,4 +11,4 @@ def get_comments(id):
     comments = Comment.query.filter(Comment.eventId == id).join(User, User.id == Comment.userId).add_columns(Comment.id, Comment.body, Comment.eventId, Comment.userId, User.username).all()
     print(comments)
     
-    return {"comments": [{"id": comment.id, "body": comment.body, "eventId": comment.eventId, "userId": comment.userId } for comment in comments]}
+    return {"comments": [{"id": comment.id, "body": comment.body, "eventId": comment.eventId, "userId": comment.userId, "username": comment.username} for comment in comments]}

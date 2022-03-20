@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { allEvents } from '../../store/event';
 import DeleteEventModal from '../modals/DeleteEventModal';
 import EditEventForm from '../forms/EditEvent';
+import Comment from '../comments/comment'
 import './SingleEvent.css'
+import { getAllComments } from '../../store/comment';
 
 const Single_Event = () => {
     const { id } = useParams()
@@ -12,11 +14,13 @@ const Single_Event = () => {
     const event = useSelector(state => state.events[id])
     const user = useSelector((state) => state.session.user)
     const [closeForm, openForm] = useState(false);
-
+    const allComments = useSelector(state => state.comments)
+    // console.log(allComments[id]);
     useEffect(() => {
         if (!id) return
         (async () => {
             dispatch(allEvents(id))
+            dispatch(getAllComments(id))
         })()
     }, [dispatch, id])
 
@@ -27,9 +31,7 @@ const Single_Event = () => {
     const newDate = event?.date.split(' ')
     newDate.pop()
     newDate.pop()
-    // newDate.join('')
     
-
     if (!event) {
         return <Redirect to='/events' />
     }
@@ -62,6 +64,9 @@ const Single_Event = () => {
                     <li>Time: {newTime}</li>
                     <li>Description: {event?.description}</li>
                 </ul>
+                {allComments && allComments[id]?.map(ele => (
+                    <Comment key={ele.id} comment={ele} />
+                ))}
             </div>
             <div className='deleteEdit-buttons'>
                 {event?.userId === user?.id &&
