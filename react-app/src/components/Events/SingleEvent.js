@@ -7,6 +7,7 @@ import EditEventForm from '../forms/EditEvent';
 import Comment from '../comments/comment'
 import './SingleEvent.css'
 import { getAllComments } from '../../store/comment';
+import NewCommentModal from '../modals/CommentModal'
 
 const Single_Event = () => {
     const { id } = useParams()
@@ -15,7 +16,7 @@ const Single_Event = () => {
     const user = useSelector((state) => state.session.user)
     const [closeForm, openForm] = useState(false);
     const allComments = useSelector(state => state.comments)
-    // console.log(allComments[id]);
+    console.log(allComments);
     useEffect(() => {
         if (!id) return
         (async () => {
@@ -31,7 +32,7 @@ const Single_Event = () => {
     const newDate = event?.date.split(' ')
     newDate.pop()
     newDate.pop()
-    
+
     if (!event) {
         return <Redirect to='/events' />
     }
@@ -64,17 +65,19 @@ const Single_Event = () => {
                     <li>Time: {newTime}</li>
                     <li>Description: {event?.description}</li>
                 </ul>
-                {allComments && allComments[id]?.map(ele => (
-                    <Comment key={ele.id} comment={ele} />
-                ))}
             </div>
             <div className='deleteEdit-buttons'>
                 {event?.userId === user?.id &&
                     <div className='button-spacing'>
+                        <NewCommentModal />
                         <DeleteEventModal />
                         <button type='button' onClick={editForm}>Edit</button></div>}
                 {closeForm && (<EditEventForm openForm={openForm} />)}
+
             </div>
+            {allComments && allComments[id]?.map(ele => (
+                <Comment key={ele?.id} comment={ele} />
+            ))}
 
         </>
     )

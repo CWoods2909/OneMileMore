@@ -1,17 +1,20 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import './Comment.css'
 
 function Comment({ comment }) {
     return (
-        <ul className='comment-container'>
-            <li>
-                {comment?.username}
-            </li>
-            <li>
-                {comment?.body}
-            </li>
+        <div className='outer-comment'>
 
-        </ul>
+            <ul className='comment-container'>
+                <strong>
+                    {comment?.username}
+                </strong>
+                <li>
+                    {comment?.body}
+                </li>
+
+            </ul>
+        </div>
     )
 }
 export default Comment
