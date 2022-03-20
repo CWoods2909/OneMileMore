@@ -24,8 +24,11 @@ const Single_Event = () => {
         openForm(true);
     }
 
-    const newDate = new Date(event?.date).toLocaleDateString('en-US')
-
+    const newDate = event?.date.split(' ')
+    newDate.pop()
+    newDate.pop()
+    // newDate.join('')
+    
 
     if (!event) {
         return <Redirect to='/events' />

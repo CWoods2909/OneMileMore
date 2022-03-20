@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Event, db
-from app.forms.event_form import EventForm
+from app.forms import EventForm
 
 event_routes = Blueprint('events', __name__)
 
