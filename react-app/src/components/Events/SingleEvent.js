@@ -30,8 +30,8 @@ const Single_Event = () => {
     }
 
     const newDate = event?.date.split(' ')
-    newDate.pop()
-    newDate.pop()
+    newDate?.pop()
+    newDate?.pop()
 
     if (!event) {
         return <Redirect to='/events' />
@@ -69,10 +69,10 @@ const Single_Event = () => {
             <div className='deleteEdit-buttons'>
                 {event?.userId === user?.id &&
                     <div className='button-spacing'>
-                        <NewCommentModal />
                         <DeleteEventModal />
-                        <button type='button' onClick={editForm}>Edit</button></div>}
+                        <button type='button' onClick={editForm}>Edit Event</button></div>}
                 {closeForm && (<EditEventForm openForm={openForm} />)}
+                        <NewCommentModal />
 
             </div>
             {allComments && allComments[id]?.map(ele => (

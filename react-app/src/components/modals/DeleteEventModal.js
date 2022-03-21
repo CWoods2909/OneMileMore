@@ -9,7 +9,7 @@ const DeleteEventModal = ({id}) => {
 
     return (
         <>
-            <button className='delete-button' onClick={() => setRenderModal(true)}>Delete</button>
+            <button className='delete-button' onClick={() => setRenderModal(true)}>Delete Event</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <DelEventForm id={id} onClose={() => setRenderModal(false)}/>
