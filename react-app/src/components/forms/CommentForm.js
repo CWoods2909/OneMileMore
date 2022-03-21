@@ -15,9 +15,9 @@ const NewCommentForm = ({onClose}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        newData = await dispatch(newComment(body, event))
+        newData = await dispatch(newComment(body, event,))
         if (newData) {
-            await dispatch(getAllComments(id))
+            await dispatch(getAllComments())
         if (newData?.errors) return setErrors(newData.errors)
         else onClose()
         }else onClose()
