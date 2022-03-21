@@ -60,7 +60,6 @@ const NewEventForm = ({ onClose }) => {
             datePicked = date.split('-')
             let year = datePicked.shift()
             datePicked.push(year)
-            console.log(datePicked);
             if (datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
 

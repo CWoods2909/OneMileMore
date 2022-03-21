@@ -16,12 +16,12 @@ const Single_Event = () => {
     const user = useSelector((state) => state.session.user)
     const [closeForm, openForm] = useState(false);
     const allComments = useSelector(state => state.comments)
-    console.log(allComments);
+
     useEffect(() => {
         if (!id) return
         (async () => {
-            dispatch(allEvents(id))
-            dispatch(getAllComments(id))
+            await dispatch(getAllComments(id))
+            await dispatch(allEvents(id))
         })()
     }, [dispatch, id])
 
@@ -72,13 +72,13 @@ const Single_Event = () => {
                         <DeleteEventModal />
                         <button type='button' onClick={editForm}>Edit Event</button></div>}
                 {closeForm && (<EditEventForm openForm={openForm} />)}
-                        <NewCommentModal />
+                <NewCommentModal />
 
             </div>
             {allComments && allComments[id]?.map(ele => (
                 <Comment key={ele?.id} comment={ele} />
+                
             ))}
-
         </>
     )
 }

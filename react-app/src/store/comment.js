@@ -52,9 +52,7 @@ export const newComment = (body, event) => async dispatch => {
         
     })
     if(response.ok){
-        console.log(response);
         const new_comment = await response.json()
-        console.log(new_comment);
         if(new_comment?.errors) return new_comment
         dispatch(addComment(new_comment))
         return new_comment
@@ -76,7 +74,9 @@ const commentReducer = (state = initialState, action) =>{
         
         case ADD_COMMENT:
             newState = {...state}
-            newState[action.postComment.eventId] = action.postComment
+            newState[action.postComment.eventId] =
+            action.postComment
+            // console.log(action.postComment);
             return newState
             
             default:

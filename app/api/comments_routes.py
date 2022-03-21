@@ -27,6 +27,6 @@ def post_comments(id):
         db.session.commit()
         newComment = Comment.query.filter(comment.id == Comment.id).join(User, User.id == Comment.userId).add_columns(Comment.id, Comment.body, Comment.eventId, Comment.userId, User.username).first()
         
-        return {"id": newComment.id, "body":newComment.body, "eventId": newComment.eventId, "userId": newComment.userId, "username": newComment.username}
+        return {"id": newComment.id, "body": newComment.body, "eventId": newComment.eventId, "userId": newComment.userId, "username": newComment.username}
     elif form.errors:
         return {'errors': form.errors}, 401

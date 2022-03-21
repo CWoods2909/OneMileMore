@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { newComment } from '../../store/comment';
+import { getAllComments } from '../../store/comment';
 
 const NewCommentForm = ({onClose}) => {
     const dispatch = useDispatch()
     const {id} = useParams()
     const event = useSelector(state => state.events[id]?.id)
-    // console.log(event);
-
     const [body, setBody] = useState('')
     const [errors, setErrors] = useState([])
 
@@ -18,6 +17,7 @@ const NewCommentForm = ({onClose}) => {
 
         newData = await dispatch(newComment(body, event))
         if (newData) {
+            await dispatch(getAllComments(id))
         if (newData?.errors) return setErrors(newData.errors)
         else onClose()
         }else onClose()
