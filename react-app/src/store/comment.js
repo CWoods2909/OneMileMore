@@ -24,20 +24,21 @@ const editComment = (updateComment) => {
     }
 }
 
-const deleteComment = (id, eventId) => {
+const deleteComment = (id) => {
     return {
         type: DELETE_COMMENT,
-        payload: {id, eventId}
+        id
     }
 }
 
 //Get all
-export const getAllComments = (id) => async dispatch =>{
-    const response = await fetch (`/api/comments/${id}`,{
+export const getAllComments = () => async dispatch =>{
+    const response = await fetch (`/api/comments/`,{
         method: 'GET'
     })
     if(response.ok){
-        const {comments} = await response.json();
+        const comments = await response.json();
+        console.log(comments);
         dispatch(getComments(comments))
         return comments
     }
@@ -59,6 +60,19 @@ export const newComment = (body, event) => async dispatch => {
     }
 }
 
+//delete comment
+export const commentDelete = (id) => async dispatch => {
+    console.log(id);
+    const response = await fetch(`/apa/events/${id}`, {
+        method: 'DELETE'
+    })
+    if(response.ok){
+        const deleted = await response.json()
+        dispatch(deleteComment(deleted))
+        return deleted
+    }
+}
+
 //comment reducer
 const initialState = {}
 const commentReducer = (state = initialState, action) =>{
@@ -67,16 +81,19 @@ const commentReducer = (state = initialState, action) =>{
     switch(action.type){
         case GET_COMMENTS:
             newState = {...state}
-            if(action.comments.length > 0){
-                newState[action.comments[0].eventId] = action.comments
-            }
-            return newState
-        
+                action.comments.comments.forEach(comment => {
+                    newState[comment.id] = comment
+                });
+                return newState
+            
         case ADD_COMMENT:
             newState = {...state}
-            newState[action.postComment.eventId] =
-            action.postComment
-            // console.log(action.postComment);
+            newState[action.postComment.eventId] = action.postComment
+            return newState
+
+        case DELETE_COMMENT:
+            newState = {...state}
+            newState[action.comment.id] = action.comment 
             return newState
             
             default:

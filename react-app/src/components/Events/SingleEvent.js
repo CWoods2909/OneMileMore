@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { allEvents } from '../../store/event';
 import DeleteEventModal from '../modals/DeleteEventModal';
 import EditEventForm from '../forms/EditEvent';
-import Comment from '../comments/comment'
 import './SingleEvent.css'
 import { getAllComments } from '../../store/comment';
 import NewCommentModal from '../modals/CommentModal'
+import DeleteComment from '../modals/DeleteCommentModal'
 
 const Single_Event = () => {
     const { id } = useParams()
@@ -15,12 +15,14 @@ const Single_Event = () => {
     const event = useSelector(state => state.events[id])
     const user = useSelector((state) => state.session.user)
     const [closeForm, openForm] = useState(false);
-    const allComments = useSelector(state => state.comments)
+    const allComments = useSelector(state => Object.values(state.comments))
+    const comments = allComments.filter(comment => comment.eventId === event.id)
+    console.log(comments);
 
     useEffect(() => {
         if (!id) return
         (async () => {
-            await dispatch(getAllComments(id))
+            await dispatch(getAllComments())
             await dispatch(allEvents(id))
         })()
     }, [dispatch, id])
@@ -75,8 +77,19 @@ const Single_Event = () => {
                 <NewCommentModal />
 
             </div>
-            {allComments && allComments[id]?.map(ele => (
-                <Comment key={ele?.id} comment={ele} />
+            {comments?.map(comment => (
+                <div className='outer-comment'>
+                <ul className='comment-container'>
+                    <li>
+                        {comment?.body}
+                    </li>
+                </ul>
+                <div>
+                    {comment?.userId === user?.id &&
+                    <DeleteComment />
+                    }
+                </div> 
+            </div>
                 
             ))}
         </>

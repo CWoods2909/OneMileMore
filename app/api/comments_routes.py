@@ -1,18 +1,16 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models.db import db
-from app.models import Comment, User
+from app.models import Comment, User, db
 from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/<int:id>', methods=['GET'])
-def get_comments(id):
-    comments = Comment.query.filter(Comment.eventId == id).join(User, User.id == Comment.userId).add_columns(Comment.id, Comment.body, Comment.eventId, Comment.userId, User.username).all()
-    print(comments)
-    
-    return {"comments": [{"id": comment.id, "body": comment.body, "eventId": comment.eventId, "userId": comment.userId, "username": comment.username} for comment in comments]}
+@comment_routes.route('/', methods=['GET'])
+def get_comments():
+    comments = Comment.query.all()
+    return {'comments': [comment.to_dict() for comment in comments]}
 
+    
 @comment_routes.route('/<int:id>', methods=['POST'])
 def post_comments(id):
     form = CommentForm()
@@ -30,3 +28,10 @@ def post_comments(id):
         return {"id": newComment.id, "body": newComment.body, "eventId": newComment.eventId, "userId": newComment.userId, "username": newComment.username}
     elif form.errors:
         return {'errors': form.errors}, 401
+    
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+def delete_comment(id):
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return comment.to_dict()
