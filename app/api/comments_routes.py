@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import Comment, User, db
+from app.models import Comment, db
 from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
@@ -33,3 +33,19 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return comment.to_dict()
+
+@comment_routes.route('/<int:id>', methods=['PUT'])
+def edit_comment(id):
+    comment = Comment.query.get(id)
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        
+        comment.body= form.data['body'],
+        userId = current_user.id,
+        eventId = request.get_json()['eventId']
+        
+        db.session.commit()
+        return comment.to_dict()
+    elif form.errors:
+        return {'errors': form.errors}, 401

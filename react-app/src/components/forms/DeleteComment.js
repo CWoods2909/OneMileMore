@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { commentDelete, getAllComments } from '../../store/comment';
-import { useParams } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { commentDelete} from '../../store/comment';
+
 
 const DestroyCommentForm = ({ comment, onClose}) => {
     const dispatch = useDispatch()
