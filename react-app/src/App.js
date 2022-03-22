@@ -8,6 +8,7 @@ import Splash from './components/Navbar/SplashPage'
 import EventList from './components/Events/events'
 import { allEvents } from './store/event';
 import Single_Event from './components/Events/SingleEvent'
+import Error from './components/Error/Errorpage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         <ProtectedRoute path='/events/:id' exact={true} >
           <Single_Event />
         </ProtectedRoute>
+        <Route>
+          <Error />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -19,7 +19,7 @@ const NewEventForm = ({ onClose }) => {
     const event = useSelector((state) => state.events)
     const [eventName, setEventName] = useState('')
     const [location, setLocation] = useState('')
-    const [length, setLength] = useState('')
+    const [length, setLength] = useState(1)
     const [date, setDate] = useState(`${defaultDate()}`)
     const [time, setTime] = useState('')
     const [description, setDescription] = useState('')
