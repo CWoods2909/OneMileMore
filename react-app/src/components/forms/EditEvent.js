@@ -55,7 +55,7 @@ const EditEventForm = ({ openForm }) => {
         }
 
         if (length <= 0) validate.push('Please provide a valid ride length.')
-
+        console.log(errors);
         setErrors(validate)
     }, [eventName, datePicked, date, length])
 
@@ -67,7 +67,8 @@ const EditEventForm = ({ openForm }) => {
     return (
         <form onSubmit={handleSubmit} className='edit-event-form'>
             <h2 className='edit-event-header'>Edit Event</h2>
-            <ul className='errors'>{Object.entries(errors).map((error) => (
+            <ul className='errors'>{Object.values(errors).map((error) => (
+                
                 <li key={error}>{error}</li>
             ))}</ul>
             <div>
