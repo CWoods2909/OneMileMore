@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     db.relationship('attending', cascade='all, delete')
+    comment_info = db.relationship('Comment', back_populates='user_info')
     
     @property
     def password(self):

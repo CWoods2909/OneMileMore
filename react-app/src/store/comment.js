@@ -53,7 +53,6 @@ export const newComment = (body, eventId, userId) => async dispatch => {
     })
     if(response.ok){
         const new_comment = await response.json()
-        console.log(new_comment);
         if(new_comment?.errors) return new_comment
         dispatch(addComment(new_comment))
         return new_comment
@@ -62,7 +61,6 @@ export const newComment = (body, eventId, userId) => async dispatch => {
 
 //delete comment
 export const commentDelete = (id) => async dispatch => {
-    console.log(id);
     const response = await fetch(`/api/comments/${id}`, {
         method: 'DELETE'
     })
@@ -70,6 +68,20 @@ export const commentDelete = (id) => async dispatch => {
         const deleted = await response.json()
         dispatch(deleteComment(deleted))
         return deleted
+    }
+}
+
+//edit comment
+export const updateComment = (body, eventId, userId, id) => async dispatch => {
+    const response = await fetch(`/api/comments/${id}`,{
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({body, eventId, userId, id })
+    })
+    if(response.ok){
+        const updated = await response.json()
+        dispatch(editComment(updated))
+        return updated
     }
 }
 
@@ -95,7 +107,12 @@ const commentReducer = (state = initialState, action) =>{
             newState = {...state}
             delete newState[action.comment.id] 
             return newState
-            
+
+        case EDIT_COMMENT:
+            newState = {...state}
+            newState[action.updateComment.id] = action.updateComment
+            return newState
+        
             default:
                 return state;
     }

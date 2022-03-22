@@ -8,6 +8,7 @@ import './SingleEvent.css'
 import { getAllComments } from '../../store/comment';
 import NewCommentModal from '../modals/CommentModal'
 import DeleteComment from '../modals/DeleteCommentModal'
+import EditComment from '../modals/EditCommentModal';
 
 const Single_Event = () => {
     const { id } = useParams()
@@ -17,7 +18,7 @@ const Single_Event = () => {
     const [closeForm, openForm] = useState(false);
     const allComments = useSelector(state => Object.values(state.comments))
     const comments = allComments?.filter(comment => comment?.eventId === event?.id)
-    // console.log(comments);
+    
 
     useEffect(() => {
         if (!id) return
@@ -78,8 +79,12 @@ const Single_Event = () => {
 
             </div>
             {comments?.map((comment, idx) => (
+                    
                 <div className='outer-comment'>
                 <ul className='comment-container' key={idx}>
+                    <strong>
+                        {comment?.username}
+                    </strong>
                     <li>
                         {comment?.body}
                     </li>
@@ -87,8 +92,13 @@ const Single_Event = () => {
                 <div>
                     {comment?.userId === user?.id &&
                     <DeleteComment comment={comment}/>
-                    }
+                }
                 </div> 
+                <div>
+                {comment?.userId === user?.id &&
+                <EditComment comment={comment}/>
+            }
+                </div>
             </div>
                 
             ))}
