@@ -41,9 +41,9 @@ const EditEventForm = ({ openForm }) => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
-            event.split(',')
+            
             if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
-            console.log(eventName, event);
+            
             return true
         })
         

@@ -44,6 +44,7 @@
 .events-indv:hover{
     cursor: pointer;
     border-color: whitesmoke;
+    background-color: rgba(255, 151, 103, 0.856);
 }
 
 .new-event-form{

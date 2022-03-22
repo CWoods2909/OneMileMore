@@ -32,7 +32,7 @@ def post_event():
         db.session.commit()
         return event.to_dict()
     if form.errors:
-        return {'errors': form.errors}
+        return {'errors': form.errors}, 401
 
 
 @event_routes.route('/<int:id>', methods=['GET'])
