@@ -21,7 +21,11 @@ const EditCommentForm = ({ comment, onClose }) => {
     }
 
     useEffect(() => {
-        setErrors([])
+        let validate = []
+
+        if(body.length < 5) validate.push('Please provide a comment longer than 5 charachters.')
+
+        setErrors(validate)
     }, [body])
 
     return (

@@ -83,12 +83,13 @@ const Single_Event = () => {
                 <div className='outer-comment'>
                 <ul className='comment-container' key={idx}>
                     <strong>
-                        {comment?.username}
+                        User: {comment?.username}
                     </strong>
                     <li>
                         {comment?.body}
                     </li>
                 </ul>
+                <div className='delete-edit-container'>
                 <div>
                     {comment?.userId === user?.id &&
                     <DeleteComment comment={comment}/>
@@ -99,6 +100,7 @@ const Single_Event = () => {
                 <EditComment comment={comment}/>
             }
                 </div>
+            </div>
             </div>
                 
             ))}
