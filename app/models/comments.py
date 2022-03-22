@@ -8,7 +8,7 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     eventId = db.Column(db.Integer, db.ForeignKey('events.id', ondelete='CASCADE'), nullable=False)
     
-    user_info = db.relationship('User', back_populates='comment_info')
+    user_info = db.relationship('User', back_populates='comment_info', lazy='subquery')
     
     def to_dict(self):
         return{

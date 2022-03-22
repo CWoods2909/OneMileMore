@@ -1,9 +1,7 @@
-from email import message
-from multiprocessing import Event
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, IntegerField, DateField
 from wtforms.validators import DataRequired, ValidationError, Length
-from app.models import Event
+
 
 class EventForm(FlaskForm):
     eventName = StringField('Event Name', validators=[DataRequired(), Length(max=100, min=5, message='Event name must be longer than 5 charachters and less than 100 charachters.')])
