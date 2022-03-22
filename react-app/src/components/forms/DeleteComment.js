@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { commentDelete } from '../../store/comment';
+import { commentDelete, getAllComments } from '../../store/comment';
 import { useParams } from 'react-router-dom';
 
-const DestroyCommentForm = ({id, onClose}) => {
+const DestroyCommentForm = ({ onClose}) => {
     const dispatch = useDispatch()
-    
+    const {id} = useParams()
+    const event = useSelector(state => state.events[id])
+    const allComments = useSelector(state => Object.values(state.comments))
+    const comments = allComments.filter(comment => comment.eventId === event.id)
+    console.log(comments);
     const handleDelete = async (e) => {
         e.preventDefault()
 

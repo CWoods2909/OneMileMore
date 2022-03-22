@@ -58,7 +58,6 @@ export const deleteEvent = (evt) => async dispatch => {
     })
     if(response.ok){
         const delete_Event = await response.json();
-        console.log(delete_Event);
         dispatch(destroy(delete_Event))
         return delete_Event
     }

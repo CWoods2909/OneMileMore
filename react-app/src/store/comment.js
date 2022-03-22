@@ -64,7 +64,7 @@ export const newComment = (body, eventId, userId) => async dispatch => {
 //delete comment
 export const commentDelete = (id) => async dispatch => {
     console.log(id);
-    const response = await fetch(`/apa/events/${id}`, {
+    const response = await fetch(`/api/events/${id}`, {
         method: 'DELETE'
     })
     if(response.ok){
@@ -94,7 +94,7 @@ const commentReducer = (state = initialState, action) =>{
 
         case DELETE_COMMENT:
             newState = {...state}
-            newState[action.comment.id] = action.comment 
+            delete newState[action.comment.id] 
             return newState
             
             default:

@@ -16,8 +16,8 @@ const Single_Event = () => {
     const user = useSelector((state) => state.session.user)
     const [closeForm, openForm] = useState(false);
     const allComments = useSelector(state => Object.values(state.comments))
-    const comments = allComments.filter(comment => comment.eventId === event.id)
-    console.log(comments);
+    const comments = allComments?.filter(comment => comment?.eventId === event?.id)
+    // console.log(comments);
 
     useEffect(() => {
         if (!id) return
@@ -77,9 +77,9 @@ const Single_Event = () => {
                 <NewCommentModal />
 
             </div>
-            {comments?.map(comment => (
+            {comments?.map((comment, idx) => (
                 <div className='outer-comment'>
-                <ul className='comment-container'>
+                <ul className='comment-container' key={idx}>
                     <li>
                         {comment?.body}
                     </li>
