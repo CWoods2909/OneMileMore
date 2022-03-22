@@ -86,7 +86,7 @@ const Single_Event = () => {
                 </ul>
                 <div>
                     {comment?.userId === user?.id &&
-                    <DeleteComment />
+                    <DeleteComment comment={comment}/>
                     }
                 </div> 
             </div>

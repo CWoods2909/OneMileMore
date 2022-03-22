@@ -24,10 +24,10 @@ const editComment = (updateComment) => {
     }
 }
 
-const deleteComment = (id) => {
+const deleteComment = (comment) => {
     return {
         type: DELETE_COMMENT,
-        id
+        comment
     }
 }
 
@@ -38,7 +38,6 @@ export const getAllComments = () => async dispatch =>{
     })
     if(response.ok){
         const comments = await response.json();
-        console.log(comments);
         dispatch(getComments(comments))
         return comments
     }
@@ -64,7 +63,7 @@ export const newComment = (body, eventId, userId) => async dispatch => {
 //delete comment
 export const commentDelete = (id) => async dispatch => {
     console.log(id);
-    const response = await fetch(`/api/events/${id}`, {
+    const response = await fetch(`/api/comments/${id}`, {
         method: 'DELETE'
     })
     if(response.ok){

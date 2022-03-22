@@ -41,7 +41,9 @@ const EditEventForm = ({ openForm }) => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
+            event.split(',')
             if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
+            console.log(eventName, event);
             return true
         })
         
@@ -52,7 +54,7 @@ const EditEventForm = ({ openForm }) => {
             if (datePicked[2] <= dateToday[2] && datePicked[1] < dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
 
-        if (length < 0) validate.push('Please provide a valid ride length.')
+        if (length <= 0) validate.push('Please provide a valid ride length.')
 
         setErrors(validate)
     }, [eventName, datePicked, date, length])

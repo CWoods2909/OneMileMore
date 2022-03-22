@@ -47,23 +47,18 @@ const NewEventForm = ({ onClose }) => {
             if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
             return true
         })
-
         
-        if (length < 0) validate.push('Please provide a valid ride length.')
-
-        setErrors(validate)
-    }, [eventName, length, event])
-
-    useEffect(() => {
-        const validate = []
         if (date.length) {
             datePicked = date.split('-')
             let year = datePicked.shift()
             datePicked.push(year)
-            if (datePicked[2] <= dateToday[2] && datePicked[1] <= dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
+            if (datePicked[2] <= dateToday[2] && datePicked[1] < dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
 
-    }, [datePicked, date])
+        if (length <= 0) validate.push('Please provide a valid ride length.')
+
+        setErrors(validate)
+    }, [eventName, datePicked, date, length])
 
 
     return (

@@ -103,5 +103,22 @@
 .outer-comment{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100vw;
+    flex-direction: column-reverse;
+}
+
+.delete-button{
+    width: 8vw;
+    height: 2vh;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    margin-right: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.delete-button:hover{
+    background-color: rgb(172, 74, 56);
+    cursor: pointer;
+    color: aliceblue;
 }
