@@ -4,6 +4,7 @@ import LogoutButton from '../auth/LogoutButton';
 import NewEventModal from '../modals/NewEvent'
 import './NavBar.css'
 import { useSelector} from 'react-redux';
+import { FaHome } from "react-icons/fa";
 
 const NavBar = () => {
   
@@ -13,9 +14,9 @@ const NavBar = () => {
   return (
     <nav className='navBar'>
       <div className='home_create-event'>
-        <div>
+        <div className='home-button'>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            <FaHome className='home'/>
           </NavLink>
         </div>
         <div className='new-event-button'>
