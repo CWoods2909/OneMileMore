@@ -16,7 +16,7 @@ const DelEventForm = () => {
     }
     return(
         <div className="delete-container">
-            <p>Delete Event?</p>
+            <h2>Delete Event?</h2>
             <button className="delete-button" onClick={handleDelete}>Yes</button>
         </div>
     )

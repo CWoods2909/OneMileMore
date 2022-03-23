@@ -88,7 +88,6 @@ const Single_Event = () => {
                     <li>
                         {comment?.body}
                     </li>
-                </ul>
                 <div className='delete-edit-container'>
                 <div>
                     {comment?.userId === user?.id &&
@@ -101,6 +100,7 @@ const Single_Event = () => {
             }
                 </div>
             </div>
+            </ul>
             </div>
                 
             ))}
