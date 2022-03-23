@@ -39,15 +39,15 @@ const NewEventForm = ({ onClose }) => {
     let dateString = new Date()
     let dateToday = dateString.toLocaleDateString().split('/')
     let datePicked
-    
+
     useEffect(() => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
-            if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
+            if (eventName.trim() === event.eventName.trim()) validate.push('Sorry, that Event name is already in use.')
             return true
         })
-        
+
         if (date.length) {
             datePicked = date.split('-')
             let year = datePicked.shift()
@@ -78,6 +78,7 @@ const NewEventForm = ({ onClose }) => {
             <div>
                 <label>Location of ride</label>
                 <input
+                    placeholder='Address or Location'
                     type='text'
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}

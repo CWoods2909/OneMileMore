@@ -59,6 +59,7 @@ const Single_Event = () => {
 
     return (
         <>
+        <div className='outer-outer'>
             <div className='Outer-event-container'>
                 <ul className='event-details'>
                     <li>Event Name: {event?.eventName}</li>
@@ -69,14 +70,17 @@ const Single_Event = () => {
                     <li>Description: {event?.description}</li>
                 </ul>
             </div>
+        </div>
             <div className='deleteEdit-buttons'>
                 {event?.userId === user?.id &&
                     <div className='button-spacing'>
                         <DeleteEventModal />
                         <button type='button' onClick={editForm}>Edit Event</button></div>}
-                {closeForm && (<EditEventForm openForm={openForm} />)}
                 <NewCommentModal />
 
+            </div>
+            <div className='event-form-container'>
+                {closeForm && (<EditEventForm openForm={openForm} />)}
             </div>
             {comments?.map((comment, idx) => (
                     

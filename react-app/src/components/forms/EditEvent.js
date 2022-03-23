@@ -8,7 +8,7 @@ const EditEventForm = ({ openForm }) => {
     const dispatch = useDispatch()
     const { id } = useParams()
     const event = useSelector((state) => state.events[id])
-
+    const allEvents = useSelector(state => state.events)
     const formatDate = (date) => {
         const formattedDate = new Date(date).toISOString().slice(0, 10);
         return formattedDate;
@@ -22,7 +22,7 @@ const EditEventForm = ({ openForm }) => {
     const [time, setTime] = useState(event?.time)
     const [description, setDescription] = useState(event?.description)
     const [errors, setErrors] = useState([])
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -36,17 +36,17 @@ const EditEventForm = ({ openForm }) => {
     let dateString = new Date()
     let dateToday = dateString.toLocaleDateString().split('/')
     let datePicked
-    
+
     useEffect(() => {
-        const events = Object.values(event)
         const validate = []
-        events.map(event => {
-            
-            if (eventName === event.eventName) validate.push('Sorry, that Event name is already in use.')
-            
-            return true
-        })
         
+        Object.values(allEvents).map(events =>{
+            if (events.eventName === event.eventName && event.id !== events.id) validate.push('Sorry, that Event name is already in use.')
+            console.log(events.id, event.id , +id );
+        })
+
+            
+
         if (date.length) {
             datePicked = date.split('-')
             let year = datePicked.shift()
@@ -55,7 +55,6 @@ const EditEventForm = ({ openForm }) => {
         }
 
         if (length <= 0) validate.push('Please provide a valid ride length.')
-        console.log(errors);
         setErrors(validate)
     }, [eventName, datePicked, date, length])
 
@@ -68,7 +67,7 @@ const EditEventForm = ({ openForm }) => {
         <form onSubmit={handleSubmit} className='edit-event-form'>
             <h2 className='edit-event-header'>Edit Event</h2>
             <ul className='errors'>{Object.values(errors).map((error) => (
-                
+
                 <li key={error}>{error}</li>
             ))}</ul>
             <div>
@@ -82,6 +81,7 @@ const EditEventForm = ({ openForm }) => {
             <div>
                 <label>Location of ride</label>
                 <input
+                    placeholder='Address or Location'
                     type='text'
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
