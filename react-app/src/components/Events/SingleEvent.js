@@ -39,7 +39,6 @@ const Single_Event = () => {
     if (!event) {
         return <Redirect to='/events' />
     }
-
     const theTime = event?.time.split(':')
     let hours = theTime[0]
     let minutes = theTime[1]
@@ -50,9 +49,9 @@ const Single_Event = () => {
         newTime = "" + hours;
     } else if (hours > 12) {
         newTime = "" + (hours - 12);
-    } else if (hours === 0) {
+    } else if (hours === '00') {
         newTime = "12";
-    }
+    } 
     newTime += (minutes < 10) ? ":" + minutes : ":" + minutes;
     newTime += (hours >= 12) ? " P.M" : " A.M";
 

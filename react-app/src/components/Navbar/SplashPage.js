@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import DemoUser from '../auth/DemoUser';
 import './Splash.css'
+import { FaGithub, FaLinkedin  } from "react-icons/fa";
 
 function Splash() {
     const sessionUser = useSelector((state) => state.session.user);
@@ -18,8 +19,14 @@ function Splash() {
                         <LoginModal />
                         <SignupModal />
                         <DemoUser />
+                        <div>
+                            <a href='https://github.com/CWoods2909' target='_blank'><FaGithub/></a>
+                        <a href='https://www.linkedin.com/in/charles-woods-319a83231?trk=people-guest_people_search-card' target='_blank'><FaLinkedin/></a>
+                        </div>
                     </div>
+                    
                 </div>)
+                
             }
         </div>
     )

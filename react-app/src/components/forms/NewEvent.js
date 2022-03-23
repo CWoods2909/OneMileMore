@@ -7,7 +7,6 @@ const NewEventForm = ({ onClose }) => {
 
 
     const defaultDate = () => {
-        // yyyy-mm-dd
         const date = new Date().toISOString().slice(0, 10);
         return date;
     };
@@ -29,7 +28,8 @@ const NewEventForm = ({ onClose }) => {
         e.preventDefault();
         let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
         if (new_Event?.errors) {
-            return setErrors(new_Event.errors)
+            // console.log(new_Event.errors);
+            return setErrors(new_Event?.errors)
         }
         if (new_Event) history.push(`/events/${new_Event.id}`)
         onClose()
@@ -45,7 +45,7 @@ const NewEventForm = ({ onClose }) => {
         const validate = []
         events.map(event => {
             if (eventName.trim() === event.eventName.trim()) validate.push('Sorry, that Event name is already in use.')
-            return true
+            // return true
         })
 
         if (date.length) {
@@ -54,11 +54,13 @@ const NewEventForm = ({ onClose }) => {
             datePicked.push(year)
             if (datePicked[2] <= dateToday[2] && datePicked[1] < dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
         }
-
+        if (location.length < 5 ) validate.push('Location must have at least 5 characters.')
+        if (location.length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
-
+        if (description.length < 10 )validate.push('Description must be greater than 5 characters.')
+        if(description.length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
-    }, [eventName, datePicked, date, length])
+    }, [eventName, datePicked, date, length, location, description])
 
 
     return (
@@ -98,7 +100,7 @@ const NewEventForm = ({ onClose }) => {
                     type='date'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                />
+                    />
             </div>
             <div>
                 <label>Time</label>
@@ -106,6 +108,7 @@ const NewEventForm = ({ onClose }) => {
                     type='time'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
+                    required={true}
                 />
             </div>
             <div>

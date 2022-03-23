@@ -21,6 +21,8 @@ const SignUpForm = () => {
       setErrors(['Password fields must match!']);
       return;
     }
+
+    if(!email.includes('@') || !email.includes('.com')) setErrors(['Please provide a valid email'])
   };
 
   const updateUsername = (e) => {
