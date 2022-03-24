@@ -22,7 +22,7 @@ const NavBar = () => {
           <NewEventModal />
         </div>
         <div className='user-name'>
-          Hello: {sessionUser.username}
+          Hello {sessionUser.username}
         </div>
       </div>
         <div className='log-out-button'>

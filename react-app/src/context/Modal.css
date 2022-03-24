@@ -40,10 +40,24 @@
 
 #modal-content > form > div > button{
     margin-top: 10px;
-    width: 90px;
-    height: 30px;
-    border-radius: 20px;
+    width: auto;
+    height: auto;
+    padding: 2%;
+    border-radius: 5px;
     background-color: rgb(231, 231, 231);
+}
+
+.delete-button{
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    
+}
+
+.delete-button:hover{
+    background-color: rgb(223, 55, 26);
+    cursor: pointer;
+    color: aliceblue;
 }
 
 #modal-content > form > div > button:hover{

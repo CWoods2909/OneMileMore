@@ -61,12 +61,12 @@ const Single_Event = () => {
         <div className='outer-outer'>
             <div className='Outer-event-container'>
                 <ul className='event-details'>
-                    <li>Event Name: {event?.eventName}</li>
-                    <li>Location: {event?.location}</li>
-                    <li>Length: {event?.length} miles</li>
-                    <li>Date: {newDate}</li>
-                    <li>Time: {newTime}</li>
-                    <li>Description: {event?.description}</li>
+                    <strong>Event Name:</strong> <li>{event?.eventName}</li>
+                    <strong>Location:</strong> <li>{event?.location}</li>
+                    <strong>Length:</strong> <li>{event?.length} miles</li>
+                    <strong>Date:</strong> <li>{newDate}</li>
+                    <strong>Time:</strong> <li>{newTime}</li>
+                    <strong>Description:</strong> <li>{event?.description}</li>
                 </ul>
             </div>
         </div>
