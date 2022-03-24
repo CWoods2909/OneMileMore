@@ -18,7 +18,7 @@ const Single_Event = () => {
     const [closeForm, openForm] = useState(false);
     const allComments = useSelector(state => Object.values(state.comments))
     const comments = allComments?.filter(comment => comment?.eventId === event?.id)
-    
+    const reverse = comments.reverse()
 
     useEffect(() => {
         if (!id) return
@@ -81,7 +81,7 @@ const Single_Event = () => {
             <div className='event-form-container'>
                 {closeForm && (<EditEventForm openForm={openForm} />)}
             </div>
-            {comments?.map((comment, idx) => (
+            {reverse?.map((comment, idx) => (
                     
                 <div className='outer-comment'>
                 <ul className='comment-container' key={idx}>
