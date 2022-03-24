@@ -6,7 +6,7 @@ const DeleteComment = ({comment}) => {
     const [ renderModal, setRenderModal ] = useState(false);
     return (
         <>
-            <button className='delete-button' onClick={() => setRenderModal(true)}>Delete</button>
+            <button className='delete-button-comment' onClick={() => setRenderModal(true)}>Delete</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <DestroyCommentForm  comment={comment} onClose={() => setRenderModal(false)}/>

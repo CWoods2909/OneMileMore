@@ -14,7 +14,7 @@ const DestroyCommentForm = ({ comment, onClose}) => {
     return (
         <div className='delete-container'>
             <h2>Delete Comment?</h2>
-            <button className="delete-button" onClick={handleDelete}>Yes</button>
+            <button className="delete-button-comment" onClick={handleDelete}>Yes</button>
         </div>
     )
 }

@@ -51,6 +51,8 @@
 }
 
 .new-event-form{
+    height: auto;
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
