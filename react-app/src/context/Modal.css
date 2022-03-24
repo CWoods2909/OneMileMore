@@ -70,3 +70,23 @@
     height: 20vh;
 }
 
+.submit-sign-button{
+    background-color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 8vw;
+    height: auto;
+}
+
+.submit-sign-button:hover{
+    background-color: rgb(61, 172, 85);
+    color: aliceblue;
+}
+
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    align-items: center;
+}

@@ -24,7 +24,7 @@ const EditCommentForm = ({ comment, onClose }) => {
         let validate = []
 
         if(body.length < 5) validate.push('Please provide a comment longer than 5 charachters.')
-
+        if(body.length > 1000) validate.push('Comments can not be longer than 1000 characters.')
         setErrors(validate)
     }, [body])
 

@@ -130,9 +130,11 @@ return (
                 onChange={(e) => setDescription(e.target.value)}
             />
         </div>
+        <div className='event-sub-edit'>
         <div className='submit-button'>
             <button className='submit-event' type='submit' disabled={errors.length > 0}>Submit</button>
             <button className='cancel-event' type='button' onClick={cancelSubmit}>Cancel</button>
+        </div>
         </div>
     </form>
 )
