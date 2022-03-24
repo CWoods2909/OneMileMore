@@ -48,11 +48,13 @@ const NewEventForm = ({ onClose }) => {
             // return true
         })
 
-        if (date.length) {
-            datePicked = date.split('-')
-            let year = datePicked.shift()
-            datePicked.push(year)
-            if (datePicked[2] <= dateToday[2] && datePicked[1] < dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
+        if (date?.length) {
+            datePicked = date?.split('-')
+            let year = datePicked?.shift()
+            datePicked?.push(year)
+            console.log('datepicked',+datePicked[0], +datePicked[1], +datePicked[2])
+            console.log('datetoday',+dateToday[0], +dateToday[1], +dateToday[2]);
+            if (+datePicked[2] <= +dateToday[2] && +datePicked[1] <= +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
         }
         if(eventName.length < 5) validate.push('Event name must be more than 5 characters.')
         if(eventName.length > 100) validate.push('Event name must not be longer than 100 characters.')
