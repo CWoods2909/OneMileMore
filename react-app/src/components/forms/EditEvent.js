@@ -53,7 +53,7 @@ if (date.length) {
     datePicked = date.split('-')
     let year = datePicked.shift()
     datePicked.push(year)
-    if (datePicked[2] <= dateToday[2] && datePicked[1] < dateToday[1] && datePicked[0] <= dateToday[0]) validate.push('Please pick a valid date.')
+    if (+datePicked[2] <= +dateToday[2] && +datePicked[1] < +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
 }
 
 if (length <= 0) validate.push('Please provide a valid ride length.')
