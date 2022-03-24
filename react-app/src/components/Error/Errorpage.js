@@ -14,7 +14,7 @@ function Error404() {
     return (
         <div className="error-container">
             <div className="error-h1">
-                <h1>Were sorry, you went somewhere you werent supposed to.</h1>
+                <h1>Sorry, you went somewhere you werent supposed to.</h1>
             </div>
 
         </div>

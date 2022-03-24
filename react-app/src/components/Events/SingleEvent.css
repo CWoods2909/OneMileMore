@@ -80,10 +80,43 @@
 .edit-event-form > div > textarea{
     width: 25vw;
     height: 10vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.submit-event{
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: solid rgb(56, 172, 95);
+}
+
+.submit-event:hover{
+    cursor: pointer;
+    color: rgb(56, 172, 95);
+    font-weight: bolder;
+}
+
+.cancel-event{
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: solid tomato;
+}
+
+.cancel-event:hover{
+    cursor: pointer;
+    color: tomato;
+    font-weight: bolder;
+}
+
+
+
 .add-comment-button{
-    width: 6vw;
+    width: auto;
     height: auto;
     border-radius: 5px;
     background-color: rgba(245, 245, 245);

@@ -41,8 +41,7 @@ const EditEventForm = ({ openForm }) => {
         const validate = []
 
         Object.values(allEvents).forEach(events => {
-            if (events.eventName.trim() === eventName.trim()) {
-                console.log(events.eventName === event.eventName);
+            if (events.eventName.trim().toLowerCase() === eventName.trim().toLowerCase()) {
                 if (events.id !== +id) validate.push('Sorry, that Event name is already in use.')
     }
             
@@ -132,8 +131,8 @@ return (
             />
         </div>
         <div className='submit-button'>
-            <button type='submit' disabled={errors.length > 0}>Submit</button>
-            <button type='button' onClick={cancelSubmit}>Cancel</button>
+            <button className='submit-event' type='submit' disabled={errors.length > 0}>Submit</button>
+            <button className='cancel-event' type='button' onClick={cancelSubmit}>Cancel</button>
         </div>
     </form>
 )

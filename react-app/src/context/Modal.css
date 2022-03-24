@@ -20,7 +20,7 @@
 #modal-content {
     position: absolute;
     background-color:#f7f7f7;
-    width: 35vh;
+    width: 45vh;
     height: auto;
     border-radius: 5px;
     display: flex;
@@ -52,7 +52,7 @@
 }
 
 #modal-content > form > div > textarea{
-    width: 20vw;
+    width: 15vw;
     height: 20vh;
 }
 

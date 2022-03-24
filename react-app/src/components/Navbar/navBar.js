@@ -9,7 +9,6 @@ import { FaHome } from "react-icons/fa";
 const NavBar = () => {
   
   const sessionUser = useSelector(state => state.session.user)
-  console.log(sessionUser);
 
   return (
     <nav className='navBar'>

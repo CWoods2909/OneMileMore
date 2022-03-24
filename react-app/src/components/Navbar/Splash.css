@@ -3,8 +3,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    
-    
 }
 
 .outer-splash{
@@ -14,16 +12,15 @@
     justify-content: space-around;
     background-image: url("../../bike.jpg");
     filter: brightness(90%);
-    
 }
 
 .splash-main{
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    height: auto;
     justify-content: center;
     background-color: #f7f7f7d0;
-    margin-top: 30%;
+    margin-top: 25%;
 }
 
 .github{
@@ -33,6 +30,7 @@
     margin-left: 45%;
     transform: scale(2);
     color: tomato;
+    padding-bottom: 1%;
 }
 
 .linked{
@@ -42,6 +40,7 @@
     margin-left: 6%;
     transform: scale(2);
     color: rgb(177, 177, 61);
+    padding-bottom: 1%;
 }
 
 .splash-buttons {

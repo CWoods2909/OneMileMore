@@ -44,7 +44,7 @@ const NewEventForm = ({ onClose }) => {
         const events = Object.values(event)
         const validate = []
         events.map(event => {
-            if (eventName.trim() === event.eventName.trim()) validate.push('Sorry, that Event name is already in use.')
+            if (eventName.trim().toLowerCase() === event.eventName.trim().toLowerCase()) validate.push('Sorry, that Event name is already in use.')
             // return true
         })
 
