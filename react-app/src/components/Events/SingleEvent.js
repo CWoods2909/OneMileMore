@@ -64,7 +64,7 @@ const Single_Event = () => {
                     <strong>Event Name:</strong> <li>{event?.eventName}</li>
                     <strong>Location:</strong> <li>{event?.location}</li>
                     <strong>Length:</strong> <li>{event?.length} miles</li>
-                    <strong>Date:</strong> <li>{newDate}</li>
+                    <strong>Date:</strong> <li>{newDate.join(' ')}</li>
                     <strong>Time:</strong> <li>{newTime}</li>
                     <strong>Description:</strong> <li>{event?.description}</li>
                 </ul>
