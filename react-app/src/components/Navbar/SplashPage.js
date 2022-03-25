@@ -23,8 +23,8 @@ function Splash() {
                             <DemoUser />
                         </div>
                             <div>
-                                <a href='https://github.com/CWoods2909' target='_blank'><FaGithub className='github'/></a>
-                                <a href='https://www.linkedin.com/in/charles-woods-319a83231?trk=people-guest_people_search-card' target='_blank'><FaLinkedin className='linked'/></a>
+                                <a href='https://github.com/CWoods2909' target='_blank' rel='noreferrer'><FaGithub className='github'/></a>
+                                <a href='https://www.linkedin.com/in/charles-woods-319a83231?trk=people-guest_people_search-card' target='_blank' rel='noreferrer'><FaLinkedin className='linked'/></a>
                             </div>
 
                     </div>)

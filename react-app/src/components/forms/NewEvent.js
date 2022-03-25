@@ -43,17 +43,16 @@ const NewEventForm = ({ onClose }) => {
     useEffect(() => {
         const events = Object.values(event)
         const validate = []
-        events.map(event => {
+        events.map((event) => {
             if (eventName.trim().toLowerCase() === event.eventName.trim().toLowerCase()) validate.push('Sorry, that Event name is already in use.')
-            // return true
+            
         })
 
         if (date?.length) {
             datePicked = date?.split('-')
             let year = datePicked?.shift()
             datePicked?.push(year)
-            console.log('datepicked',+datePicked[0], +datePicked[1], +datePicked[2])
-            console.log('datetoday',+dateToday[0], +dateToday[1], +dateToday[2]);
+            
             if (+datePicked[2] <= +dateToday[2] && +datePicked[1] <= +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
         }
         if(eventName.length < 5) validate.push('Event name must be more than 5 characters.')

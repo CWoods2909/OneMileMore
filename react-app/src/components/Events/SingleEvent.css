@@ -190,7 +190,7 @@
     padding-top: 2%;
     padding-right: 2%;
     margin: 0;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: flex-start;
     border-radius: 5px;
     border: 1px solid rgb(95, 95, 95);
@@ -199,6 +199,10 @@
     overflow-wrap: break-word;
     overflow: auto;
     list-style-type: none;
+}
+
+.comment-container > strong{
+    text-decoration: underline;
 }
 
 .comment-container:hover{
@@ -251,7 +255,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 40px;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 1%;
 }
 
