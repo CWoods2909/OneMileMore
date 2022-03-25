@@ -41,7 +41,7 @@ const EditCommentForm = ({ comment, onClose }) => {
                 />
             </div>
             <div className='submit-button'>
-                <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button className='submit-button-comment' type='submit' disabled={errors.length > 0}>Submit</button>
             </div>
         </form>
 

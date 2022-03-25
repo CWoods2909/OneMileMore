@@ -44,7 +44,7 @@ const NewCommentForm = ({onClose}) => {
                 />
             </div>
             <div className='submit-button'>
-                <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button className='totally-comment-button' type='submit' disabled={errors.length > 0}>Submit</button>
             </div>
         </form>
     )

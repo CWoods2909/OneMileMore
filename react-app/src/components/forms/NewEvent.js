@@ -123,7 +123,7 @@ const NewEventForm = ({ onClose }) => {
                 />
             </div>
             <div className='submit-button'>
-                <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button className='submit-button-event' type='submit' disabled={errors.length > 0}>Submit</button>
             </div>
         </form>
     )

@@ -138,7 +138,7 @@
 }
 
 .button-spacing > button{
-    width: 6vw;
+    width: auto;
     height: auto;
     border-radius: 5px;
     background-color: rgba(245, 245, 245);
@@ -149,6 +149,36 @@
 .button-spacing > button:hover{
     cursor: pointer;
     color: rgb(116, 56, 172);
+    font-weight: bold;
+}
+
+.submit-button-comment{
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: solid rgb(56, 172, 95);
+}
+
+.submit-button-comment:hover{
+    cursor: pointer;
+    color: rgb(56, 172, 95);
+    font-weight: bolder;
+}
+
+.totally-comment-button{
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: solid rgb(56, 172, 95);
+}
+
+.totally-comment-button:hover{
+    cursor: pointer;
+    color: rgb(56, 172, 95);
     font-weight: bolder;
 }
 
@@ -187,10 +217,24 @@
 .delete-button-comment{
     width: auto;
     height: auto;
+    border-radius: 5px;
+    border-color: red;
+    background-color: rgba(245, 245, 245);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: bolder;
+}
+
+.delete-button-comment:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.delete-button-comment-outer{
+    width: auto;
+    height: auto;
     border: none;
     background:none;
 }
-
 
 .trash:hover{
     color: rgb(180, 34, 8);
