@@ -28,7 +28,6 @@ const NewEventForm = ({ onClose }) => {
         e.preventDefault();
         let new_Event = await dispatch(newEvent(eventName, location, length, date, time, description))
         if (new_Event?.errors) {
-            // console.log(new_Event.errors);
             return setErrors(new_Event?.errors)
         }
         if (new_Event) history.push(`/events/${new_Event.id}`)
@@ -60,6 +59,7 @@ const NewEventForm = ({ onClose }) => {
         if (location.length < 5 ) validate.push('Location must have at least 5 characters.')
         if (location.length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
+        if (length % 1 !== 0) validate.push('No decimal points in length field please.')
         if (description.length < 10 )validate.push('Description must be greater than 10 characters.')
         if(description.length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
@@ -72,7 +72,7 @@ const NewEventForm = ({ onClose }) => {
             <ul className='errors'>{Object.values(errors).map((error, ind) => (
                 <li key={ind}>{error}</li>
             ))}</ul>
-            <div>
+            <div className='event-title-create'>
                 <label>Name of event</label>
                 <input
                     type='text'
@@ -114,7 +114,7 @@ const NewEventForm = ({ onClose }) => {
                     required={true}
                 />
             </div>
-            <div>
+            <div className='event-description-create'>
                 <label>Tell us about your ride</label>
                 <textarea
                     value={description}

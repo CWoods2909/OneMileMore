@@ -56,14 +56,12 @@ if (date.length) {
     if (+datePicked[2] <= +dateToday[2] && +datePicked[1] < +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
 }
 
-if (length <= 0) validate.push('Please provide a valid ride length.')
-setErrors(validate)
-
 if(eventName.length < 5) validate.push('Event name must be more than 5 characters.')
         if(eventName.length > 100) validate.push('Event name must not be longer than 100 characters.')
         if (location.length < 5 ) validate.push('Location must have at least 5 characters.')
         if (location.length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
+        if (length % 1 !== 0) validate.push('No decimal points in length field please.')
         if (description.length < 10 )validate.push('Description must be greater than 10 characters.')
         if(description.length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
@@ -90,7 +88,7 @@ return (
                 onChange={(e) => setEventName(e.target.value)}
             />
         </div>
-        <div>
+        <div className='event-title-description'>
             <label>Location of ride</label>
             <input
                 placeholder='Address or Location'
@@ -123,7 +121,7 @@ return (
                 onChange={(e) => setTime(e.target.value)}
             />
         </div>
-        <div>
+        <div className='event-description-edit'>
             <label>Tell us about your ride</label>
             <textarea
                 value={description}

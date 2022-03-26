@@ -35,6 +35,7 @@
     font-weight: bold;
     font-size: x-large;
     color: rgba(59, 58, 58, 0.931);
+    word-break: break-all;
 }
 
 .description{

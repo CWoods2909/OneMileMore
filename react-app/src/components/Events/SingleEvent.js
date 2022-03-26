@@ -61,12 +61,12 @@ const SingleEventPage = () => {
         <div className='outer-outer'>
             <div className='Outer-event-container'>
                 <ul className='event-details'>
-                    <strong>Event Name:</strong> <li>{event?.eventName}</li>
+                    <strong className='event-title'>Event Name:</strong> <li>{event?.eventName}</li>
                     <strong>Location:</strong> <li>{event?.location}</li>
                     <strong>Length:</strong> <li>{event?.length} miles</li>
                     <strong>Date:</strong> <li>{newDate.join(' ')}</li>
                     <strong>Time:</strong> <li>{newTime}</li>
-                    <strong>Description:</strong> <li>{event?.description}</li>
+                    <strong className='event-description'>Description:</strong> <li>{event?.description}</li>
                 </ul>
             </div>
         </div>
@@ -88,7 +88,7 @@ const SingleEventPage = () => {
                     <strong>
                         User: {comment?.username}
                     </strong>
-                    <li>
+                    <li className='comment-body'>
                         {comment?.body}
                     </li>
                 <div className='delete-edit-container'>

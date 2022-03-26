@@ -307,3 +307,31 @@
   display: flex;
   justify-content: center;
 }
+
+.event-title{
+  word-break: break-all;
+}
+
+.event-title-create{
+  word-break: normal;
+}
+
+.event-title-description{
+  word-break: normal;
+}
+
+.event-description{
+  word-break: break-all;
+}
+
+.event-description-edit{
+  word-break: normal;
+}
+
+.event-description-create{
+  word-break: normal;
+}
+
+.comment-body{
+  word-break: break-all;
+}
