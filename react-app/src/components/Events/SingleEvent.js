@@ -10,7 +10,7 @@ import NewCommentModal from '../modals/CommentModal'
 import DeleteComment from '../modals/DeleteCommentModal'
 import EditComment from '../modals/EditCommentModal';
 
-const Single_Event = () => {
+const SingleEventPage = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const event = useSelector(state => state.events[id])
@@ -111,4 +111,4 @@ const Single_Event = () => {
     )
 }
 
-export default Single_Event
+export default SingleEventPage

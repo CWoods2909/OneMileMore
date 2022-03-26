@@ -7,7 +7,7 @@ import { authenticate } from './store/session';
 import Splash from './components/Navbar/SplashPage'
 import EventList from './components/Events/events'
 import { allEvents } from './store/event';
-import Single_Event from './components/Events/SingleEvent'
+import SingleEventPage from './components/Events/SingleEvent'
 import Error from './components/Error/Errorpage'
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
           <EventList />
         </ProtectedRoute>
         <ProtectedRoute path='/events/:id' exact={true} >
-          <Single_Event />
+          <SingleEventPage />
         </ProtectedRoute>
         <Route>
           <Error />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
 
@@ -22,6 +22,16 @@ const SignUpForm = () => {
       return;
     }
   };
+
+  useEffect(() =>{
+    let validate = []
+
+    if(username.length > 40) validate.push('User name cannot be longer than 40 characters.')
+    if(email.length > 255) validate.push('Email cannont be longer than 255 characters.')
+    if(password.length > 255) validate.push('Password cannot be longer than 255 characters.')
+
+    setErrors(validate)
+  }, [username, email, password])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -85,7 +95,7 @@ const SignUpForm = () => {
           // required={true}
         ></input>
       </div>
-      <button className='submit-sign-button' type='submit'>Sign Up</button>
+      <button className='submit-sign-button' type='submit' disabled={errors.length > 0}>Sign Up</button>
     </form>
   );
 };
