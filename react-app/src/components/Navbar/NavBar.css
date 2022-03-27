@@ -38,6 +38,7 @@
     background-color: rgb(87, 87, 194);
     cursor: pointer;
     color: aliceblue;
+    font-weight: bold;
 }
 
 .log-out-button{
@@ -53,6 +54,7 @@
     background-color: rgb(221, 177, 34);
     cursor: pointer;
     color: aliceblue;
+    font-weight: bold;
 }
 
 .home{

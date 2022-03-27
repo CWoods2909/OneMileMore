@@ -97,7 +97,7 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 
    - heroku container:push web -a {NAME_OF_HEROKU_APP}
    - heroku container:release web -a {NAME_OF_HEROKU_APP}
-   - heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
+   - heroku run -a {NAME_OF_HEROKU_APP} flask db migrate
    - heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
 
 8. Under settings on Heroku find 'Config Vars' and add the secret .env variables.
