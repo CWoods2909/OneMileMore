@@ -41,7 +41,7 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
   ![image](https://user-images.githubusercontent.com/83300311/160014853-d50b07b7-e2c1-427e-91d6-eff96e261835.png)
   ![image](https://user-images.githubusercontent.com/83300311/160014943-5b8147fa-82aa-4bab-bb64-3b85b2a9e4ec.png)
 
-# Users can also edit or delete comments if they are the user that made them.
+* Users can also edit or delete comments if they are the user that made them.
 
 ![image](https://user-images.githubusercontent.com/83300311/160015097-ceb370bd-cf87-4b42-9389-bd358f092cbf.png)
 
