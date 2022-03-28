@@ -57,13 +57,13 @@ if (date.length) {
 }
 
 if(eventName.length < 5) validate.push('Event name must be more than 5 characters.')
-        if(eventName.length > 100) validate.push('Event name must not be longer than 100 characters.')
-        if (location.length < 5 ) validate.push('Location must have at least 5 characters.')
-        if (location.length > 100) validate.push('Location cannot be longer than 100 characters')
+        if(eventName.trim().length > 100) validate.push('Event name must not be longer than 100 characters.')
+        if (location.trim().length < 5 ) validate.push('Location must have at least 5 characters.')
+        if (location.trim().length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
         if (length % 1 !== 0) validate.push('No decimal points in length field please.')
-        if (description.length < 10 )validate.push('Description must be greater than 10 characters.')
-        if(description.length > 500) validate.push('Description must not be longer than 500 characters.')
+        if (description.trim().length < 10 )validate.push('Description must be greater than 10 characters.')
+        if(description.trim().length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
 
     }, [eventName, datePicked, date, length, location, description])
