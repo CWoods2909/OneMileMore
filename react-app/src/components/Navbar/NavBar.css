@@ -3,7 +3,7 @@
     flex-direction: row;
     height: 5vh;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: rgba(255, 151, 103, 0.856);
 }
 

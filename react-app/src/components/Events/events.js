@@ -5,14 +5,20 @@ import './Events.css'
 
 function EventList() {
     const event = useSelector((state) => state.events)
-    
-    
-    const eventComp = Object.values(event)?.map((ele) =>{
+
+
+    const eventComp = Object.values(event)?.map((ele) => {
         return (
-            <div className='events-indv' key={ele.id}>
-                <NavLink className={'Navlink'} to={`/events/${ele.id}`}>{ele.eventName}</NavLink>
-                <div className='description'>{ele.description}</div>
-            </div>
+            <>
+            <NavLink className={'Navlink'} to={`/events/${ele?.id}`}>
+                <div className='events-indv' key={ele?.id}>
+                    <div className='event-title'>
+                    <h2 >{ele?.eventName}</h2>
+                    </div>
+                    <div className='description'>{ele?.description}</div>
+                </div>
+            </NavLink>
+            </>
         )
     })
     return (
