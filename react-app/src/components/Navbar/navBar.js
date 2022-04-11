@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import NewEventModal from '../modals/NewEvent'
 import './NavBar.css'
-import { useSelector} from 'react-redux';
+// import { useSelector} from 'react-redux';
 import { FaHome } from "react-icons/fa";
+import Search from '../SearchBar'
 
 const NavBar = () => {
   
-  const sessionUser = useSelector(state => state.session.user)
+  // const sessionUser = useSelector(state => state.session.user)
 
   return (
     <nav className='navBar'>
@@ -21,9 +22,8 @@ const NavBar = () => {
         <div className='new-event-button'>
           <NewEventModal />
         </div>
-        <div className='user-name'>
-          Hello {sessionUser.username}
-        </div>
+      </div>
+      <div><Search />
       </div>
         <div className='log-out-button'>
           <LogoutButton />
