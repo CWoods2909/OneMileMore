@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .events-container > h1{
@@ -26,6 +27,7 @@
     font-size: large;
     overflow-wrap: break-word;
     overflow: auto;
+
 }
 
 .Navlink{

@@ -5,6 +5,7 @@ import NewEventModal from '../modals/NewEvent'
 import './NavBar.css'
 import { useSelector} from 'react-redux';
 import { FaHome } from "react-icons/fa";
+import Search from '../SearchBar'
 
 const NavBar = () => {
   
@@ -24,6 +25,8 @@ const NavBar = () => {
         <div className='user-name'>
           Hello {sessionUser.username}
         </div>
+      </div>
+      <div><Search />
       </div>
         <div className='log-out-button'>
           <LogoutButton />
