@@ -3,7 +3,7 @@
     flex-direction: row;
     height: 5vh;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: rgba(255, 151, 103, 0.856);
 }
 
@@ -15,49 +15,43 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 40vw;
+    width: 20vw;
     align-items: center;
 }
 
-.user-name{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    font-weight: bold;
-    word-break: break-all;
-}
-
 .new-event-button{
-    width: auto;
-    height: auto;
-    border-radius: 5px;
-    background-color: rgba(245, 245, 245);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    background: none;
+    transform: scale(1.6);
 }
 
 .new-event-button:hover{
-    background-color: rgb(87, 87, 194);
     cursor: pointer;
-    color: aliceblue;
-    font-weight: bold;
+    color: rgb(30, 131, 64);
 }
 
 .log-out-button{
-    width: 90px;
-    height: auto;
-    border-radius: 5px;
-    background-color: rgba(245, 245, 245);
-    margin-right: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    background: none;
+    transform: scale(1.3);
+    color: rgb(69, 30, 87);
 }
 
 .log-out-button:hover{
-    background-color: rgb(221, 177, 34);
     cursor: pointer;
-    color: aliceblue;
-    font-weight: bold;
 }
 
 .home{
     color: rgb(69, 30, 87);
     transform: scale(1.8);
+}
+
+.socials-navbar{
+    width: 5vw;
+    height: auto;
+}
+
+.github2, .linked2{
+    transform: scale(1.2);
+    margin-right: 5%;
 }
