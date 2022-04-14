@@ -7,7 +7,6 @@
     font-size: 18px;
     height: 30px;
     width: auto;
-    
 }
 
 .search-results{
@@ -52,5 +51,5 @@
 .search-item:hover{
     border-color: rgb(255, 151, 103);
     background-color: rgb(241, 237, 237);
-    color: rgb(255, 151, 103);
+    /* color: rgb(255, 151, 103); */
 }

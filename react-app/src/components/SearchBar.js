@@ -18,7 +18,7 @@ const Search = () => {
             setSearch(search)
         }
 
-        const filtered = event?.filter((value, key) => {
+        const filtered = event?.filter((value) => {
             if (value?.eventName.toLowerCase().includes(search?.toLowerCase())) return value
         })
         setfilteredEvents(filtered)
@@ -30,7 +30,7 @@ const Search = () => {
             <div className='search-input'>
                 <input
                     type='search'
-                    placeholder='Search'
+                    placeholder='Search Events'
                     onChange={(e) => setSearch(e.target.value) }
                     value={search}
                 />

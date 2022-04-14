@@ -8,7 +8,7 @@ function EventList() {
     const event = useSelector((state) => state.events)
 
 
-    const eventComp = Object.values(event)?.map((ele) => {
+    const eventComp = Object.values(event)?.map((ele, idx) => {
         return (
             <>
                 <NavLink className={'Navlink'} to={`/events/${ele?.id}`}>
@@ -26,7 +26,6 @@ function EventList() {
         <div className='events-container'>
             <h1>Upcoming Events</h1>
             <div className='create-event-header'>
-                {/* <h3>Create</h3> */}
             <div className='new-event-button'>
                 <NewEventModal />
             </div>
