@@ -42,9 +42,8 @@ const NewEventForm = ({ onClose }) => {
     useEffect(() => {
         const events = Object.values(event)
         const validate = []
-        events.map((event) => {
+        events?.map((event) => {
             if (eventName.trim().toLowerCase() === event.eventName.trim().toLowerCase()) validate.push('Sorry, that Event name is already in use.')
-            
         })
 
         if (date?.length) {

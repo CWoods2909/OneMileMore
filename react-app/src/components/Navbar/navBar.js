@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import NewEventModal from '../modals/NewEvent'
 import './NavBar.css'
 import { FaHome } from "react-icons/fa";
 import Search from '../SearchBar'

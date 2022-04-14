@@ -8,7 +8,10 @@
 
 .events-container > h1{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: xx-large;
+}
+
+.events-container > h1:hover{
+cursor: default;
 }
 
 .create-event-header{
@@ -29,11 +32,11 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    border: 1px solid rgb(95, 95, 95);
+    border: 2px solid rgb(95, 95, 95);
     border-radius: 10px;
     margin-bottom: 2%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    box-shadow: -2px 1px rgb(5, 5, 5);
+    box-shadow: -2px 1px rgb(98, 97, 97);
     font-size: large;
     overflow-wrap: normal;
     overflow: auto;
@@ -43,6 +46,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    text-decoration: underline;
 }
 
 .Navlink{
@@ -66,8 +70,8 @@
 
 .events-indv:hover{
     cursor: pointer;
-    border-color: whitesmoke;
-    background-color: rgba(255, 151, 103, 0.856);
+    border-color: rgb(38, 132, 144);
+    color: rgb(38, 132, 144);
 }
 
 .new-event-form{

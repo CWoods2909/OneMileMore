@@ -4,7 +4,7 @@
     height: 5vh;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 151, 103, 0.856);
+    background-color: rgb(38, 132, 144);
 }
 
 .navBar > .log-out-button{
@@ -15,14 +15,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 20vw;
+    width: 25vw;
     align-items: center;
 }
 
 .new-event-button{
     border: none;
     background: none;
-    transform: scale(1.6);
+    transform: scale(1.5);
 }
 
 .new-event-button:hover{
@@ -33,7 +33,7 @@
 .log-out-button{
     border: none;
     background: none;
-    transform: scale(1.3);
+    transform: scale(1.2);
     color: rgb(69, 30, 87);
 }
 
@@ -41,9 +41,10 @@
     cursor: pointer;
 }
 
+
 .home{
     color: rgb(69, 30, 87);
-    transform: scale(1.8);
+    transform: scale(1.5);
 }
 
 .socials-navbar{
@@ -52,6 +53,7 @@
 }
 
 .github2, .linked2{
-    transform: scale(1.2);
-    margin-right: 5%;
+    transform: scale(1.3);
+    margin-right: 20%;
+    color: darkblue;
 }

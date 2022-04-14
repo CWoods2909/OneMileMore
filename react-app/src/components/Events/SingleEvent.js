@@ -61,7 +61,7 @@ const SingleEventPage = () => {
         <div className='outer-outer'>
             <div className='Outer-event-container'>
                 <ul className='event-details'>
-                    <strong className='event-title'>Event Name:</strong> <li>{event?.eventName}</li>
+                    <strong className='event-title'>Event</strong> <li>{event?.eventName}</li>
                     <strong>Location:</strong> <li>{event?.location}</li>
                     <strong>Length:</strong> <li>{event?.length} miles</li>
                     <strong>Date:</strong> <li>{newDate.join(' ')}</li>
