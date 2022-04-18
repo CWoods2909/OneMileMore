@@ -4,7 +4,7 @@
     height: 5vh;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(38, 132, 144);
+    background-color: rgb(199, 200, 218);
 }
 
 .navBar > .log-out-button{
@@ -44,7 +44,7 @@
 
 .home{
     color: rgb(69, 30, 87);
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 
 .socials-navbar{

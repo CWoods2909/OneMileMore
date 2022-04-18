@@ -43,99 +43,100 @@ const EditEventForm = ({ openForm }) => {
         Object.values(allEvents).forEach(events => {
             if (events.eventName.trim().toLowerCase() === eventName.trim().toLowerCase()) {
                 if (events.id !== +id) validate.push('Sorry, that Event name is already in use.')
-    }
-            
+            }
+
         })
 
 
 
-if (date.length) {
-    datePicked = date.split('-')
-    let year = datePicked.shift()
-    datePicked.push(year)
-    if (+datePicked[2] <= +dateToday[2] && +datePicked[1] < +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
-}
+        if (date?.length) {
+            datePicked = date?.split('-')
+            let year = datePicked?.shift()
+            datePicked?.push(year)
 
-if(eventName.length < 5) validate.push('Event name must be more than 5 characters.')
-        if(eventName.trim().length > 100) validate.push('Event name must not be longer than 100 characters.')
-        if (location.trim().length < 5 ) validate.push('Location must have at least 5 characters.')
+            if (+datePicked[2] <= +dateToday[2] && +datePicked[1] <= +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
+        }
+
+        if (eventName.trim().length < 5) validate.push('Event name must be more than 5 characters.')
+        if (eventName.trim().length > 100) validate.push('Event name must not be longer than 100 characters.')
+        if (location.trim().length < 5) validate.push('Location must have at least 5 characters.')
         if (location.trim().length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
         if (length % 1 !== 0) validate.push('No decimal points in length field please.')
-        if (description.trim().length < 10 )validate.push('Description must be greater than 10 characters.')
-        if(description.trim().length > 500) validate.push('Description must not be longer than 500 characters.')
+        if (description.trim().length < 10) validate.push('Description must be greater than 10 characters.')
+        if (description.trim().length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
 
     }, [eventName, datePicked, date, length, location, description])
 
-const cancelSubmit = (e) => {
-    e.preventDefault()
-    openForm(false)
-}
+    const cancelSubmit = (e) => {
+        e.preventDefault()
+        openForm(false)
+    }
 
-return (
-    <form onSubmit={handleSubmit} className='edit-event-form'>
-        <h2 className='edit-event-header'>Edit Event</h2>
-        <ul className='errors'>{Object.values(errors).map((error) => (
+    return (
+        <form onSubmit={handleSubmit} className='edit-event-form'>
+            <h2 className='edit-event-header'>Edit Event</h2>
+            <ul className='errors'>{Object.values(errors).map((error) => (
 
-            <li key={error}>{error}</li>
-        ))}</ul>
-        <div>
-            <label>Name of event</label>
-            <input
-                type='text'
-                value={eventName}
-                onChange={(e) => setEventName(e.target.value)}
-            />
-        </div>
-        <div className='event-title-description'>
-            <label>Location of ride</label>
-            <input
-                placeholder='Address or Location'
-                type='text'
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-            />
-        </div>
-        <div>
-            <label>Length of ride</label>
-            <input
-                type='number'
-                value={length}
-                onChange={(e) => setLength(e.target.value)}
-            />
-        </div>
-        <div>
-            <label>Date</label>
-            <input
-                type='date'
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-            />
-        </div>
-        <div>
-            <label>Time</label>
-            <input
-                type='time'
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-            />
-        </div>
-        <div className='event-description-edit'>
-            <label>Tell us about your ride</label>
-            <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-            />
-        </div>
-        <div className='event-sub-edit'>
-        <div className='submit-button'>
-            <button className='submit-event' type='submit' disabled={errors.length > 0}>Submit</button>
-            <button className='cancel-event' type='button' onClick={cancelSubmit}>Cancel</button>
-        </div>
-        </div>
-    </form>
-)
+                <li key={error}>{error}</li>
+            ))}</ul>
+            <div>
+                <label>Name of event</label>
+                <input
+                    type='text'
+                    value={eventName}
+                    onChange={(e) => setEventName(e.target.value)}
+                />
+            </div>
+            <div className='event-title-description'>
+                <label>Location of ride</label>
+                <input
+                    placeholder='Address or Location'
+                    type='text'
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Length of ride</label>
+                <input
+                    type='number'
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Date</label>
+                <input
+                    type='date'
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Time</label>
+                <input
+                    type='time'
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                />
+            </div>
+            <div className='event-description-edit'>
+                <label>Tell us about your ride</label>
+                <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+            </div>
+            <div className='event-sub-edit'>
+                <div className='submit-button'>
+                    <button className='submit-event' type='submit' disabled={errors.length > 0}>Submit</button>
+                    <button className='cancel-event' type='button' onClick={cancelSubmit}>Cancel</button>
+                </div>
+            </div>
+        </form>
+    )
 }
 
 export default EditEventForm

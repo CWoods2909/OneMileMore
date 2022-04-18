@@ -50,17 +50,17 @@ const NewEventForm = ({ onClose }) => {
             datePicked = date?.split('-')
             let year = datePicked?.shift()
             datePicked?.push(year)
-            
+
             if (+datePicked[2] <= +dateToday[2] && +datePicked[1] <= +dateToday[1] && +datePicked[0] <= +dateToday[0]) validate.push('Please pick a valid date.')
         }
-        if(eventName.trim().length < 5) validate.push('Event name must be more than 5 characters.')
-        if(eventName.trim().length > 100) validate.push('Event name must not be longer than 100 characters.')
-        if (location.trim().length < 5 ) validate.push('Location must have at least 5 characters.')
+        if (eventName.trim().length < 5) validate.push('Event name must be more than 5 characters.')
+        if (eventName.trim().length > 100) validate.push('Event name must not be longer than 100 characters.')
+        if (location.trim().length < 5) validate.push('Location must have at least 5 characters.')
         if (location.trim().length > 100) validate.push('Location cannot be longer than 100 characters')
         if (length <= 0) validate.push('Please provide a valid ride length.')
         if (length % 1 !== 0) validate.push('No decimal points in length field please.')
-        if (description.trim().length < 10 )validate.push('Description must be greater than 10 characters.')
-        if(description.trim().length > 500) validate.push('Description must not be longer than 500 characters.')
+        if (description.trim().length < 10) validate.push('Description must be greater than 10 characters.')
+        if (description.trim().length > 500) validate.push('Description must not be longer than 500 characters.')
         setErrors(validate)
     }, [eventName, datePicked, date, length, location, description])
 
@@ -102,7 +102,7 @@ const NewEventForm = ({ onClose }) => {
                     type='date'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    />
+                />
             </div>
             <div>
                 <label>Time</label>

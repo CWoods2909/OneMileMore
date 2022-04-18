@@ -57,7 +57,7 @@ cursor: default;
     font-weight: bold;
     font-size: x-large;
     color: rgba(59, 58, 58, 0.931);
-    word-break: break-all;
+    word-break: break-word;
     text-decoration: none;
 }
 
@@ -70,8 +70,9 @@ cursor: default;
 
 .events-indv:hover{
     cursor: pointer;
-    border-color: rgb(38, 132, 144);
-    color: rgb(38, 132, 144);
+    border-color: rgb(38, 100, 144);
+    color: rgb(38, 100, 144);
+    background-color: antiquewhite;
 }
 
 .new-event-form{
