@@ -35,11 +35,11 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 # Event page
 
 - Clicking on an event or creating an event will take the user to that event.
-  ![image](https://user-images.githubusercontent.com/83300311/160014732-f5b0bbac-b129-440c-a39f-7165ca53f023.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843136-93a96d41-c4cc-4580-a9da-2f25c7ea71aa.png)
 
 - From here the user can edit their event if they made the event, or, leave a comment.
-  ![image](https://user-images.githubusercontent.com/83300311/160014853-d50b07b7-e2c1-427e-91d6-eff96e261835.png)
-  ![image](https://user-images.githubusercontent.com/83300311/160014943-5b8147fa-82aa-4bab-bb64-3b85b2a9e4ec.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843198-9aab207b-3470-4b9f-9235-ea8c0fca8209.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843245-83f3b658-bb7d-4f9d-b401-4d0b127e8c05.png)
 
 * Users can also edit or delete comments if they are the user that made them.
 
