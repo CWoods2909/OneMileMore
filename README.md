@@ -31,6 +31,10 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 - Upon log in the user is greeted with the homepage. Here you can view events already made, or create your own event.
   ![image](https://user-images.githubusercontent.com/83300311/163842965-05915f50-f638-45cd-9c12-cc7a31ede642.png)
   ![image](https://user-images.githubusercontent.com/83300311/163843002-417431aa-64bc-4a2e-8492-1658d78dc309.png)
+  
+- Users can also use the search bar to search for events by name.
+  ![image](https://user-images.githubusercontent.com/83300311/163843603-3397f1dd-a625-424b-8239-3573bfaf62f5.png)
+
 
 # Event page
 
@@ -42,8 +46,9 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
   ![image](https://user-images.githubusercontent.com/83300311/163843245-83f3b658-bb7d-4f9d-b401-4d0b127e8c05.png)
 
 * Users can also edit or delete comments if they are the user that made them.
+![image](https://user-images.githubusercontent.com/83300311/163843375-2008ebe3-e3b9-4e76-b762-dce6a6370880.png)
 
-![image](https://user-images.githubusercontent.com/83300311/160015097-ceb370bd-cf87-4b42-9389-bd358f092cbf.png)
+![image](https://user-images.githubusercontent.com/83300311/163843450-81058ae8-c79f-4416-a9e8-5ba8321be7d5.png)
 
 ## Getting started (If you want to clone down the repo yourself.)
 
