@@ -8,6 +8,9 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 - Create, Read, Update, Delete
   - Events
   - Comments
+ 
+- Read
+  - Search
 
 # Upcoming features
 
@@ -17,9 +20,11 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 
 - React
 - Redux
+- JavaScript
 - Python
 - PostgreSQL
 - Flask SQLAlchemy
+- CSS
 
 # Splash Page
 
