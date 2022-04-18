@@ -24,7 +24,7 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 # Splash Page
 
 - From the splash page a user can either log-in, sign-up, or choose demo. Only the splash page is accessable without being logged in.
-  ![image](https://user-images.githubusercontent.com/83300311/160014284-20dc8aa8-0ddd-4ceb-81f4-f212b06acc4f.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163842855-87c9a1ec-0134-4869-907b-229f7894e60c.png)
 
 # Home Page
 
