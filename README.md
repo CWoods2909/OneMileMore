@@ -29,8 +29,8 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 # Home Page
 
 - Upon log in the user is greeted with the homepage. Here you can view events already made, or create your own event.
-  ![image](https://user-images.githubusercontent.com/83300311/160014468-676c53bd-79df-48f7-9a10-f1f0bb2df783.png)
-  ![image](https://user-images.githubusercontent.com/83300311/160014509-c371ef67-c435-4831-aa69-7d4a17ebddd4.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163842965-05915f50-f638-45cd-9c12-cc7a31ede642.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843002-417431aa-64bc-4a2e-8492-1658d78dc309.png)
 
 # Event page
 
