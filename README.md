@@ -8,6 +8,9 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 - Create, Read, Update, Delete
   - Events
   - Comments
+ 
+- Read
+  - Search
 
 # Upcoming features
 
@@ -17,33 +20,40 @@ One mile more is a loose clone of Meetup, a site for event posting. My idea for 
 
 - React
 - Redux
+- JavaScript
 - Python
 - PostgreSQL
 - Flask SQLAlchemy
+- CSS
 
 # Splash Page
 
 - From the splash page a user can either log-in, sign-up, or choose demo. Only the splash page is accessable without being logged in.
-  ![image](https://user-images.githubusercontent.com/83300311/160014284-20dc8aa8-0ddd-4ceb-81f4-f212b06acc4f.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163842855-87c9a1ec-0134-4869-907b-229f7894e60c.png)
 
 # Home Page
 
 - Upon log in the user is greeted with the homepage. Here you can view events already made, or create your own event.
-  ![image](https://user-images.githubusercontent.com/83300311/160014468-676c53bd-79df-48f7-9a10-f1f0bb2df783.png)
-  ![image](https://user-images.githubusercontent.com/83300311/160014509-c371ef67-c435-4831-aa69-7d4a17ebddd4.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163842965-05915f50-f638-45cd-9c12-cc7a31ede642.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843002-417431aa-64bc-4a2e-8492-1658d78dc309.png)
+  
+- Users can also use the search bar to search for events by name.
+  ![image](https://user-images.githubusercontent.com/83300311/163843603-3397f1dd-a625-424b-8239-3573bfaf62f5.png)
+
 
 # Event page
 
 - Clicking on an event or creating an event will take the user to that event.
-  ![image](https://user-images.githubusercontent.com/83300311/160014732-f5b0bbac-b129-440c-a39f-7165ca53f023.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843136-93a96d41-c4cc-4580-a9da-2f25c7ea71aa.png)
 
 - From here the user can edit their event if they made the event, or, leave a comment.
-  ![image](https://user-images.githubusercontent.com/83300311/160014853-d50b07b7-e2c1-427e-91d6-eff96e261835.png)
-  ![image](https://user-images.githubusercontent.com/83300311/160014943-5b8147fa-82aa-4bab-bb64-3b85b2a9e4ec.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843198-9aab207b-3470-4b9f-9235-ea8c0fca8209.png)
+  ![image](https://user-images.githubusercontent.com/83300311/163843245-83f3b658-bb7d-4f9d-b401-4d0b127e8c05.png)
 
 * Users can also edit or delete comments if they are the user that made them.
+![image](https://user-images.githubusercontent.com/83300311/163843375-2008ebe3-e3b9-4e76-b762-dce6a6370880.png)
 
-![image](https://user-images.githubusercontent.com/83300311/160015097-ceb370bd-cf87-4b42-9389-bd358f092cbf.png)
+![image](https://user-images.githubusercontent.com/83300311/163843450-81058ae8-c79f-4416-a9e8-5ba8321be7d5.png)
 
 ## Getting started (If you want to clone down the repo yourself.)
 
