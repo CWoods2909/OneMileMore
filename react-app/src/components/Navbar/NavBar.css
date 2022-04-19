@@ -34,13 +34,12 @@
     border: none;
     background: none;
     transform: scale(1.2);
-    color: rgb(69, 30, 87);
+    color: red;
 }
 
 .log-out-button:hover{
     cursor: pointer;
 }
-
 
 .home{
     color: rgb(69, 30, 87);

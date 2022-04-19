@@ -49,7 +49,8 @@
 }
 
 .search-item:hover{
-    border-color: rgb(255, 151, 103);
+    border-color: rgb(38, 100, 144);
     background-color: rgb(241, 237, 237);
+    color: rgb(38, 100, 144);
     /* color: rgb(255, 151, 103); */
 }
